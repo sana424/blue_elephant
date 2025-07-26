@@ -171,6 +171,14 @@ body {
   left: 0;
 }
 
+#intro .grow_inner .grow_text{
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+}
+
 #intro .grow_img .img_box {
   width: 40vw;
   transition: all 0.5s ease;
