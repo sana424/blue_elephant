@@ -27,9 +27,17 @@ body {
   opacity: 0;
 }
 
+#loading .progress{
+  margin-top: 90px;
+  font-size: 70px;
+  font-weight:300;
+  line-height:89px;
+    font-family : 'Butler';
+}
+
 .mask_img {
-  width: 500px;
-  height: 300px;
+  width: 447px;
+  height: 205px;
   background: url(../images/loading/glass.svg) no-repeat center / contain;
 }
 .bg_main {
@@ -38,8 +46,8 @@ body {
   overflow: hidden;
 }
 .bg_main_child {
-  width: 500px;
-  height: 300px;
+  width: 447px;
+  height: 205px;
   background-color: #000;
   mask-image: url(../images/loading/glass_bg.svg);
   mask-size: contain;
@@ -177,6 +185,15 @@ body {
   left: 50%;
   transform: translate(-50%);
   text-align: center;
+  width:100%;
+  color:#ffffff;
+  font-family: 'Neue Regrade';
+font-weight: 300;
+font-size: 25px;
+line-height: 43px;
+text-align: center;
+text-transform: uppercase;
+
 }
 
 #intro .grow_img .img_box {
