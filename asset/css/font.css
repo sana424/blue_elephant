@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@font-face {
+    font-family: 'Gealova';
+    src: url(../font/Gealova.otf) format('opentype');
+}
+@font-face {
+    font-family: 'Neue Regrade';
+    src: url(../font/NeueRegradeExtraBold.otf) format('opentype');
+    font-weight: 900;
+}
+@font-face {
+    font-family: 'Neue Regrade';
+    src: url(../font/NeueRegradeBold.otf) format('opentype');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Neue Regrade';
+    src: url(../font/NeueRegradeSemibold.otf) format('opentype');
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'Neue Regrade';
+    src: url(../font/NeueRegradeMedium.otf) format('opentype');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Neue Regrade';
+    src: url(../font/NeueRegradeRegular.otf) format('opentype');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Neue Regrade';
+    src: url(../font/NeueRegradeLight.otf) format('opentype');
+    font-weight: 100;
+}
