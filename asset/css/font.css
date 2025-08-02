@@ -33,3 +33,9 @@
     src: url(../font/NeueRegradeLight.otf) format('opentype');
     font-weight: 100;
 }
+
+@font-face {
+    font-family: 'Butler';
+    src: url(../font/Butler_Regular.otf) format('opentype');
+    font-weight: 300;
+}

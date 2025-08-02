@@ -3,22 +3,21 @@ window.addEventListener("DOMContentLoaded", () => {
   
   const risingTxt = document.querySelectorAll(".rising_txt");
   const growImg = document.querySelector("#intro .grow_inner");
+  const scrollMouse = document.querySelector('.scroll_mouse');
+  let scY = window.scrollY;
+
+  if(scY > 100){
+    scrollMouse.classList.add('hide');
+  }
 
   requestAnimationFrame(loadingAnimation);
 
-  console.log(loading);
-  setTimeout(function () {
-    // loading.classList.add("hidden");
-    // loading.style.opacity = 0;
-    // loading.style.visibility = 'hidden';
-  }, 1500);
-
-  // for(let i = 0; i < risingTxt.length; i++){
-  //     risingTxt[i].classList.add('active');
-  // }
-
   window.addEventListener("scroll", () => {
-    let scY = window.scrollY;
+    scY = window.scrollY;
+
+    if(scY > 100){
+      scrollMouse.classList.add('hide');
+    }
 
     if (scY > 101) {
       for (let i = 0; i < risingTxt.length; i++) {

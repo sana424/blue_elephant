@@ -27,9 +27,17 @@ body {
   opacity: 0;
 }
 
+#loading .progress{
+  margin-top: 90px;
+  font-size: 70px;
+  font-weight: 300;
+  line-height: 89px;
+  font-family: 'Butler';
+}
+
 .mask_img {
-  width: 500px;
-  height: 300px;
+  width: 447px;
+  height: 205px;
   background: url(../images/loading/glass.svg) no-repeat center / contain;
 }
 .bg_main {
@@ -38,8 +46,8 @@ body {
   overflow: hidden;
 }
 .bg_main_child {
-  width: 500px;
-  height: 300px;
+  width: 447px;
+  height: 205px;
   background-color: #000;
   mask-image: url(../images/loading/glass_bg.svg);
   mask-size: contain;
@@ -49,6 +57,65 @@ body {
 
 #loading svg {
   width: 40%;
+}
+
+/* mouse_icon */
+.scroll_mouse{
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 72px;
+  border: 1px solid var(--primary_color);
+  border-radius: 999px;
+  animation: mousemove 2s ease infinite;
+}
+
+.scroll_mouse::after{
+  content: "";
+  width: 3px;
+  height: 13px;
+  border-radius: 2px;
+  background-color: var(--primary_color);
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: wheelmove 2s ease infinite;
+}
+
+@keyframes mousemove {
+  0%{
+    transform: translateX(-50%) translateY(0px);
+  }
+  50%{
+    transform: translateX(-50%) translateY(12px);
+  }
+  100%{
+    transform: translateX(-50%) translateY(0px);
+  }
+}
+
+@keyframes wheelmove {
+  0%{
+    opacity: 0;
+    transform: translateX(-50%) translateY(0px);
+  }
+  1%{
+    opacity: 1;
+    transform: translateX(-50%) translateY(0px);
+  }
+  
+  50%{
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  
+  100%{
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
 }
 
 #intro {
@@ -177,6 +244,15 @@ body {
   left: 50%;
   transform: translate(-50%);
   text-align: center;
+  width: 100%;
+  color: #fff;
+  font-family: 'Neue Regrade';
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 43px;
+  text-align: center;
+  text-transform: uppercase;
+  
 }
 
 #intro .grow_img .img_box {
