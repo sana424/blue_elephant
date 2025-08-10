@@ -1,8 +1,40 @@
 :root {
+  overflow-x: hidden;
   --primary_color: #212121;
 }
 
+body{
+  overflow-x: hidden;
+}
 
+#header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* width: 100%; */
+}
+
+#header .header_inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+#header .header_inner .logo{
+  max-width: 241px;
+
+  & img{
+    width: 100%;
+  }
+}
+
+#header .header_inner .menu_list ul{
+  display: flex;
+  gap: 65px;
+  align-items: center;
+}
 
 #loading {
   display: flex;
@@ -25,12 +57,12 @@
   opacity: 0;
 }
 
-#loading .progress{
+#loading .progress {
   margin-top: 90px;
   font-size: 70px;
   font-weight: 300;
   line-height: 89px;
-  font-family: 'Butler';
+  font-family: "Butler";
 }
 
 .mask_img {
@@ -58,7 +90,7 @@
 }
 
 /* mouse_icon */
-.scroll_mouse{
+.scroll_mouse {
   position: fixed;
   bottom: 10%;
   left: 50%;
@@ -71,12 +103,12 @@
   transition: all 0.5s ease;
 }
 
-.scroll_mouse.hide{
+.scroll_mouse.hide {
   visibility: hidden;
   opacity: 0;
 }
 
-.scroll_mouse::after{
+.scroll_mouse::after {
   content: "";
   width: 3px;
   height: 13px;
@@ -90,33 +122,33 @@
 }
 
 @keyframes mousemove {
-  0%{
+  0% {
     transform: translateX(-50%) translateY(0px);
   }
-  50%{
+  50% {
     transform: translateX(-50%) translateY(12px);
   }
-  100%{
+  100% {
     transform: translateX(-50%) translateY(0px);
   }
 }
 
 @keyframes wheelmove {
-  0%{
+  0% {
     opacity: 0;
     transform: translateX(-50%) translateY(0px);
   }
-  1%{
+  1% {
     opacity: 1;
     transform: translateX(-50%) translateY(0px);
   }
-  
-  50%{
+
+  50% {
     opacity: 0;
     transform: translateX(-50%) translateY(20px);
   }
-  
-  100%{
+
+  100% {
     opacity: 0;
     transform: translateX(-50%) translateY(20px);
   }
@@ -133,7 +165,7 @@
 
 #intro .intro_inner {
   height: 200vh;
-  font-family: 'Gealova';
+  font-family: "Gealova";
 }
 
 #intro .inner_cont {
@@ -148,7 +180,7 @@
   flex-direction: column;
 }
 
-#intro .inner_cont .logo{
+#intro .inner_cont .logo {
   position: absolute;
   top: 5%;
   left: 50%;
@@ -156,14 +188,13 @@
   overflow: hidden;
 }
 
-#intro .inner_cont .logo svg{
+#intro .inner_cont .logo svg {
   transition: all 0.5s ease;
   transform: translateY(100%);
 }
 
-#intro:has(.rising_txt.active) .inner_cont .logo svg{
+#intro:has(.rising_txt.active) .inner_cont .logo svg {
   transform: translateY(0);
-
 }
 #intro .rising_txt {
   display: flex;
@@ -172,7 +203,6 @@
   justify-content: center;
   overflow: hidden;
 }
-
 
 #intro .rise_inner {
   font-size: 130px;
@@ -185,16 +215,15 @@
   text-transform: uppercase;
 }
 
-#intro .rising_txt:nth-child(2) .rise_inner{
+#intro .rising_txt:nth-child(2) .rise_inner {
   padding-top: 2%;
   display: flex;
   align-items: center;
 }
 
-
-#intro .rise_inner span{
+#intro .rise_inner span {
   font-family: "Great Vibes", cursive;
-  color: #254BB6;
+  color: #254bb6;
 }
 
 #intro .rise_inner img {
@@ -213,16 +242,15 @@
   line-height: 43px;
   margin-right: 30px;
   transition: all 0.5s ease-in-out;
-  font-family: 'Neue Regrade';
-
+  font-family: "Neue Regrade";
 }
 
 #intro .rising_txt.active .side_txt,
-#intro .rising_txt.active .rise_inner{
-  transform : translateY(0);
+#intro .rising_txt.active .rise_inner {
+  transform: translateY(0);
 }
 
-#intro .rising_txt.active .side_txt{
+#intro .rising_txt.active .side_txt {
   transform: translateY(-20%);
 }
 
@@ -243,7 +271,7 @@
   left: 0;
 }
 
-#intro .grow_inner .grow_text{
+#intro .grow_inner .grow_text {
   position: absolute;
   bottom: 10%;
   left: 50%;
@@ -251,7 +279,7 @@
   text-align: center;
   width: 100%;
   color: #fff;
-  font-family: 'Neue Regrade';
+  font-family: "Neue Regrade";
   font-weight: 300;
   font-size: 25px;
   line-height: 43px;
@@ -262,7 +290,7 @@
   opacity: 0;
 }
 
-#intro .grow_inner:has(.grow_img.active) .grow_text{
+#intro .grow_inner:has(.grow_img.active) .grow_text {
   visibility: visible;
   opacity: 1;
   transition: all 0.5s 0.5s ease;
@@ -280,17 +308,19 @@
   height: 100vh;
 }
 
-#intro .grow_img.active.go_side{
+#intro .grow_img.active.go_side {
   width: 793px;
   left: 50%;
   top: 20%;
 }
 
-#intro .grow_inner .side_text{
+#intro .grow_inner .side_text {
   position: sticky;
   top: 50%;
   left: 10%;
   width: 40%;
+  max-width: 500px;
+  margin-bottom: 397px;
   height: 210px;
   transform: translateY(calc(-50% + 300px));
   visibility: hidden;
@@ -300,56 +330,58 @@
 
 /*  */
 
-#intro .grow_inner .side_text_01 .num{
-  font-family: 'Gealova';
+#intro .grow_inner .side_text_01 .num {
+  font-family: "Gealova";
   font-size: 24px;
-  color: #1F309E;
+  color: #1f309e;
 }
 
-#intro .grow_inner .side_text_01 .side_tit{
-  font-family: 'Gealova';
+#intro .grow_inner .side_text_01 .side_tit {
+  font-family: "Gealova";
   font-size: 40px;
   color: var(--primary_color);
   margin-top: 27px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #b3b3b3;
 }
 
-#intro .grow_inner .side_text_01 .side_desc{
-  font-family: 'Neue Regrade';
+#intro .grow_inner .side_text_01 .side_desc {
+  font-family: "Neue Regrade";
   font-size: 24px;
   font-weight: 300;
   color: var(--primary_color);
   line-height: 43px;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 /*  */
 
-#intro .grow_inner .side_text_right{
+#intro .grow_inner .side_text_right {
   position: sticky;
   top: 90%;
-  left: 90%;
+  left: calc(100% - 596px);
+  /* right: 96px; */
   width: 40%;
+  max-width: 500px;
   transform: translateY(calc(-50% + 300px));
   visibility: hidden;
   opacity: 0;
   transition: all 0.5s ease;
 }
 
-
-#intro .grow_inner:has(.grow_img.active.go_side) .grow_text{
+#intro .grow_inner:has(.grow_img.active.go_side) .grow_text {
   visibility: hidden;
   opacity: 0;
 }
 
-
-#intro .grow_inner:has(.grow_img.active.go_side) .side_text{
+#intro .grow_inner:has(.grow_img.active.go_side) .side_text {
   transform: translateY(calc(-50%));
   visibility: visible;
   opacity: 1;
   transition: all 0.5s 0.5s ease;
 }
 
-#intro .grow_inner:has(.grow_img.active.go_side) .side_text_right{
+#intro .grow_inner:has(.grow_img.active.go_side) .side_text_right {
   transform: translateY(calc(-50%));
   visibility: visible;
   opacity: 1;
@@ -371,4 +403,60 @@
 
 #intro .grow_img img.active {
   opacity: 1;
+}
+
+#home .begin_text {
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 243px;
+}
+
+#home .begin_text p {
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 36px;
+  font-family: "Neue Regrade";
+  margin-bottom: 70px;
+}
+
+#home .begin_text h2 {
+  font-size: 220px;
+  font-family: "Gealova";
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & span {
+    font-size: 130px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 30px;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: calc(50% - 10px);
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      width: 353px;
+      height: 189px;
+      border-radius: 50%;
+      border: 1px solid var(--primary_color);
+    }
+  }
+  & strong {
+    background: linear-gradient(270deg, #dad0c0 0%, #d4be91 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-style: italic;
+    padding: 0 50px;
+  }
 }
