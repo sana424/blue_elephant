@@ -8,6 +8,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if(scY > 100){
     scrollMouse.classList.add('hide');
+  }else{
+    scrollMouse.classList.remove('hide')
   }
 
   requestAnimationFrame(loadingAnimation);
@@ -17,6 +19,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if(scY > 100){
       scrollMouse.classList.add('hide');
+    }else{
+      scrollMouse.classList.remove('hide')
     }
 
     if (scY > 101) {
@@ -32,14 +36,21 @@ window.addEventListener("DOMContentLoaded", () => {
     const growTop = growImg.getBoundingClientRect().top;
     const growPosition = scY + growTop;
     // window.innerHeight = 화면 높이
-    const timing = window.innerHeight * 0.18;
-    if (scY > growPosition - timing) {
+    const timing1 = window.innerHeight * 0.18;
+    const timing2 = window.innerHeight * 1;
+    if (scY > growPosition - timing1) {
       growImg.querySelector(".grow_img").classList.add("active");
       if (scY > growPosition + window.innerHeight / 2) {
         changeSrc(growImg);
       }
     } else {
-      growImg.querySelector(".grow_img").classList.remove("active");
+      growImg.querySelector(".grow_img").classList.remove("active");      
+    }
+    if(scY > growPosition + timing2){
+      growImg.querySelector(".grow_img").classList.add("go_side");      
+    }else{
+      growImg.querySelector(".grow_img").classList.remove("go_side");      
+
     }
 
     console.log(growPosition);
@@ -79,7 +90,7 @@ const loadingAnimation = (currentTime) => {
 
 };
 
-const changeSrc = (el) => {
+const changeSrc = (el, way) => {
   const imgList = el.querySelectorAll("img");
 
   for (let i = 1; i < imgList.length; i++) {

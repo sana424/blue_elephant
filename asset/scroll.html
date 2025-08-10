@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        body{
+            height: 5000px;
+        }
+        .box{
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+            position: fixed;
+            top: 0;
+            left: 10%;
+            transition: all 0.5s ease;
+            &.move{
+                left: 20%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    
+    <script>
+
+        const box = document.querySelector('.box');
+        window.addEventListener('scroll', ()=>{
+            let scY = window.scrollY;
+
+            if(scY > 1000){
+                box.classList.add('move');
+            }else{
+                box.classList.remove('move');
+            }
+        })
+    </script>
+
+    
+</body>
+</html>

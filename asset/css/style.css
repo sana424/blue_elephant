@@ -2,9 +2,7 @@
   --primary_color: #212121;
 }
 
-body {
-  height: 50000px;
-}
+
 
 #loading {
   display: flex;
@@ -70,6 +68,12 @@ body {
   border: 1px solid var(--primary_color);
   border-radius: 999px;
   animation: mousemove 2s ease infinite;
+  transition: all 0.5s ease;
+}
+
+.scroll_mouse.hide{
+  visibility: hidden;
+  opacity: 0;
 }
 
 .scroll_mouse::after{
@@ -119,6 +123,7 @@ body {
 }
 
 #intro {
+  min-height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -242,7 +247,7 @@ body {
   position: absolute;
   bottom: 10%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translateX(-50%) translateY(300px);
   text-align: center;
   width: 100%;
   color: #fff;
@@ -252,7 +257,16 @@ body {
   line-height: 43px;
   text-align: center;
   text-transform: uppercase;
-  
+  transition: all 0.5s ease;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#intro .grow_inner:has(.grow_img.active) .grow_text{
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s 0.5s ease;
+  transform: translateX(-50%) translateY(0px);
 }
 
 #intro .grow_img .img_box {
@@ -264,6 +278,82 @@ body {
 
 #intro .grow_img.active {
   height: 100vh;
+}
+
+#intro .grow_img.active.go_side{
+  width: 793px;
+  left: 50%;
+  top: 20%;
+}
+
+#intro .grow_inner .side_text{
+  position: sticky;
+  top: 50%;
+  left: 10%;
+  width: 40%;
+  height: 210px;
+  transform: translateY(calc(-50% + 300px));
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+/*  */
+
+#intro .grow_inner .side_text_01 .num{
+  font-family: 'Gealova';
+  font-size: 24px;
+  color: #1F309E;
+}
+
+#intro .grow_inner .side_text_01 .side_tit{
+  font-family: 'Gealova';
+  font-size: 40px;
+  color: var(--primary_color);
+  margin-top: 27px;
+}
+
+#intro .grow_inner .side_text_01 .side_desc{
+  font-family: 'Neue Regrade';
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--primary_color);
+  line-height: 43px;
+  margin-top: 50px;
+}
+
+/*  */
+
+#intro .grow_inner .side_text_right{
+  position: sticky;
+  top: 90%;
+  left: 90%;
+  width: 40%;
+  transform: translateY(calc(-50% + 300px));
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+
+#intro .grow_inner:has(.grow_img.active.go_side) .grow_text{
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+#intro .grow_inner:has(.grow_img.active.go_side) .side_text{
+  transform: translateY(calc(-50%));
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s 0.5s ease;
+}
+
+#intro .grow_inner:has(.grow_img.active.go_side) .side_text_right{
+  transform: translateY(calc(-50%));
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s 0.5s ease;
 }
 
 #intro .grow_img.active .img_box {
