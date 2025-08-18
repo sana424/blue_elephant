@@ -1,13 +1,15 @@
 :root {
-  overflow-x: hidden;
   --primary_color: #212121;
 }
 
-body{
+body {
   overflow-x: hidden;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
 
-#header{
+#header {
   position: fixed;
   top: 0;
   left: 0;
@@ -15,22 +17,22 @@ body{
   /* width: 100%; */
 }
 
-#header .header_inner{
+#header .header_inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 40px;
 }
 
-#header .header_inner .logo{
+#header .header_inner .logo {
   max-width: 241px;
 
-  & img{
+  & img {
     width: 100%;
   }
 }
 
-#header .header_inner .menu_list ul{
+#header .header_inner .menu_list ul {
   display: flex;
   gap: 65px;
   align-items: center;
@@ -178,6 +180,7 @@ body{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-top: 5%;
 }
 
 #intro .inner_cont .logo {
@@ -311,12 +314,12 @@ body{
 #intro .grow_img.active.go_side {
   width: 793px;
   left: 50%;
-  top: 20%;
+  top: 15%;
 }
 
 #intro .grow_inner .side_text {
   position: sticky;
-  top: 50%;
+  top: 40%;
   left: 10%;
   width: 40%;
   max-width: 500px;
@@ -358,9 +361,10 @@ body{
 
 #intro .grow_inner .side_text_right {
   position: sticky;
-  top: 90%;
+  top: 80%;
   left: calc(100% - 596px);
   /* right: 96px; */
+  /* margin-bottom: 100px; */
   width: 40%;
   max-width: 500px;
   transform: translateY(calc(-50% + 300px));
@@ -408,7 +412,10 @@ body{
 #home .begin_text {
   text-transform: uppercase;
   text-align: center;
+  top: 11%;
   margin-top: 243px;
+  position: sticky;
+  z-index: -1;
 }
 
 #home .begin_text p {
@@ -459,4 +466,33 @@ body{
     font-style: italic;
     padding: 0 50px;
   }
+}
+
+#home .glass_box {
+  min-height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#home .glass_box .glass_list li {
+  position: absolute;
+  max-width: 1182px;
+  width: 1182px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+#home .glass_box .glass_list li.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+#home .glass_box .glass_list li img {
+  width: 100%;
 }
