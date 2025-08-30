@@ -409,6 +409,22 @@ body::-webkit-scrollbar {
   opacity: 1;
 }
 
+#home {
+
+  position: relative;
+}
+#home .first_content {
+    height: 300vh; 
+    position:Relative;
+}
+
+#home .sticky_container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
 #home .begin_text {
   text-transform: uppercase;
   text-align: center;
