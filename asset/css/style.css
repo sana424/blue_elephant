@@ -410,8 +410,12 @@ body::-webkit-scrollbar {
 }
 
 #home {
-  height: 300vh; /* 뷰포트 높이의 3배로 긴 스크롤 구간 생성 */
+
   position: relative;
+}
+#home .first_content {
+    height: 300vh; 
+    position:Relative;
 }
 
 #home .sticky_container {
