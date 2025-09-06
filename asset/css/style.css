@@ -293,11 +293,17 @@ body::-webkit-scrollbar {
   opacity: 0;
 }
 
+#intro .grow_inner .grow_text p{
+  color: #fff;
+  white-space: nowrap;
+}
+
 #intro .grow_inner:has(.grow_img.active) .grow_text {
   visibility: visible;
   opacity: 1;
   transition: all 0.5s 0.5s ease;
   transform: translateX(-50%) translateY(0px);
+  overflow: hidden;
 }
 
 #intro .grow_img .img_box {
@@ -410,12 +416,11 @@ body::-webkit-scrollbar {
 }
 
 #home {
-
   position: relative;
 }
 #home .first_content {
-    height: 300vh; 
-    position:Relative;
+  height: 1000vh;
+  position: Relative;
 }
 
 #home .sticky_container {
@@ -425,11 +430,64 @@ body::-webkit-scrollbar {
   overflow: hidden;
 }
 
+#home .number_list{
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#home .number_list li{
+  font-family: "Neue Regrade";
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  color: var(--primary_color);
+}
+
+#home .number_list li.active{
+  font-weight: 700;
+}
+
+#home .number_list li::after{
+  content: "";
+  display: block;
+  width: 1px;
+  height: 0px;
+  background-color: #212121;
+  margin: 6px auto 0;
+  transition: all 0.5 ease;
+}
+
+
+#home .number_list li.active::after{
+  height: 37px;
+}
+
+#home .left_text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg) translateY(50%);
+  top: -30%;
+  position: absolute;
+  left: 50px;
+  font-size: 25px;
+  font-family: "Neue Regrade";
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 43px;
+  white-space: nowrap;
+  color: var(--primary_color);
+}
+
 #home .begin_text {
   text-transform: uppercase;
   text-align: center;
   top: 11%;
-  margin-top: 243px;
+  /* margin-top: 243px; */
   position: sticky;
   z-index: -1;
 }
@@ -440,9 +498,15 @@ body::-webkit-scrollbar {
   line-height: 36px;
   font-family: "Neue Regrade";
   margin-bottom: 70px;
+  color: var(--primary_color);
 }
 
 #home .begin_text h2 {
+  --first_bg : linear-gradient(270deg, #dad0c0 0%, #d4be91 100%);
+  --second_bg : linear-gradient(270deg, rgba(173, 183, 197, 0.45) 16.43%, #395B85 100%);
+  --third_bg : linear-gradient(270deg, rgba(183, 183, 183, 0.45) 16.43%, #5F5C5C 100%);
+
+  --strong_color : var(--first_bg);
   font-size: 220px;
   font-family: "Gealova";
   font-weight: 400;
@@ -475,13 +539,21 @@ body::-webkit-scrollbar {
     }
   }
   & strong {
-    background: linear-gradient(270deg, #dad0c0 0%, #d4be91 100%);
+    background: var(--strong_color);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-style: italic;
     padding: 0 50px;
+    transition: all 0.5s ease;
   }
+}
+
+#home:has(.glass_list li:nth-child(2).active) .begin_text h2{
+  --strong_color : var(--second_bg);
+}
+#home:has(.glass_list li:nth-child(3).active) .begin_text h2{
+  --strong_color : var(--third_bg);
 }
 
 #home .glass_box {
