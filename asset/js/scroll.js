@@ -20,7 +20,7 @@ gsap.from("#home .ele_01", {
     y: 500,
   scrollTrigger: {
     trigger: ".fix_box",
-    start: `${blackStyle.width * 0.3}px 80%`,
+    start: `${blackStyle.width * 0.3}px 100%`,
     end: `${blackStyle.width * 0.8}px 20%`,  
     scrub: true
   }
