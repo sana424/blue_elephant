@@ -420,6 +420,10 @@ body::-webkit-scrollbar {
 #home {
   position: relative;
 }
+#home > .box{
+  
+}
+
 #home .first_content {
   height: 1000vh;
   position: sticky;

@@ -59,22 +59,30 @@ window.addEventListener("DOMContentLoaded", () => {
     // glass box animation with sticky and extended scroll
     const glassBox = document.querySelector(".glass_box");
     if (glassBox) {
+      const sectionHome = document.querySelector("#home");
+      const sectionHomeTop = sectionHome.getBoundingClientRect().top;
+      const sectionHomeHeight = sectionHome.offsetHeight;
       const homeSection = document.querySelector("#home .first_content");
       const leftText = document.querySelector(
         "#home .sticky_container .left_text"
       );
+      
       const homeSectionTop = homeSection.getBoundingClientRect().top;
       const homeSectionHeight = homeSection.offsetHeight;
       const glassList = document.querySelectorAll(".glass_list li");
       const numberList = document.querySelectorAll(".number_list li");
-
+      console.log(sectionHomeHeight)
       // #home 섹션 내에서 스크롤 진행도 계산
+
       if (homeSectionTop <= 0 && homeSectionTop + homeSectionHeight >= 0) {
         // 긴 스크롤 구간에서의 진행도 (0 ~ 1)
         const scrollProgress = Math.max(0,Math.min(1, Math.abs(homeSectionTop) / (homeSectionHeight * 0.25 - window.innerHeight)));
         const scrollProgress2 = Math.max(0,Math.min(1, Math.abs(homeSectionTop) / (homeSectionHeight * 0.5 - window.innerHeight)));
         const scrollProgress3 = Math.max(0, Math.min(1, Math.abs(homeSectionTop) / (homeSectionHeight * 1 - window.innerHeight)));
+
         console.log(scrollProgress3);
+        console.log(homeSectionHeight);
+        console.log(homeSectionTop);
 
         // 회전각도: 15도에서 0도로 천천히
         const rotation = 15 - 15 * scrollProgress;
