@@ -14,6 +14,8 @@ body::-webkit-scrollbar {
   top: 0;
   left: 0;
   right: 0;
+  z-indeX:1000;
+  mix-blend-mode: color-dodge;
   /* width: 100%; */
 }
 
@@ -420,7 +422,9 @@ body::-webkit-scrollbar {
 }
 #home .first_content {
   height: 1000vh;
-  position: Relative;
+  position: sticky;
+  z-index:-1;
+  top:0;
 }
 
 #home .sticky_container {
@@ -583,4 +587,83 @@ body::-webkit-scrollbar {
 
 #home .glass_box .glass_list li img {
   width: 100%;
+}
+#home .fix_box{
+  position:Relative;
+  background-color: #040404;
+  border-radius: 150px 150px 0 0 ;
+}
+#home .black_container {
+  min-height:100vh;
+  display:flex;
+  width:fit-content;
+  position:sticky;
+  top:0;
+}
+
+.black_container .flex_box{
+  width:100vw;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.black_container .brand_story {
+  color:#fff;
+  text-align: center;
+  & h2 {
+      color:#fff;
+font-family: "Gealova";
+font-size: 60px;
+line-height: 75px;
+letter-spacing: 0%;
+text-align: center;
+text-transform: uppercase;
+margin-bottom: 68px;
+  }
+  & span {
+    font-family: "Neue Regrade";
+font-weight: 100;
+font-size: 44px;
+line-height: 56px;
+letter-spacing: -2%;
+text-align: center;
+    color :rgba(255,255,255,0.4)
+  }
+}
+
+.black_container .right_image {
+  position: relative;
+  margin: 0 89px 0 373px;
+  min-width:887px;
+  text-align: right;;
+  & .text{
+letter-spacing: 0%;
+    color: rgba(255,255,255);
+font-family: "Gealova";
+font-size: 25px;
+
+line-height: 43px;
+letter-spacing: 0%;
+    position:absolute;
+    & span {
+      color :rgba(255,255,255, 0.68);
+          font-family: "Neue Regrade";
+font-weight: 300;
+line-height: 43px;
+    }
+  }
+
+  & .text:nth-child(1){
+    top:200px;
+    left:170px;
+  }
+  & .text:nth-child(2){
+    top:481px;
+    left:-30px;
+  }
+  & .text:nth-child(3){
+    top:762px;
+    left:40px;
+  }
+
 }

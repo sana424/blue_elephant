@@ -63,7 +63,6 @@ window.addEventListener("DOMContentLoaded", () => {
       const leftText = document.querySelector(
         "#home .sticky_container .left_text"
       );
-      const stickyContainer = document.querySelector("#home .sticky_container");
       const homeSectionTop = homeSection.getBoundingClientRect().top;
       const homeSectionHeight = homeSection.offsetHeight;
       const glassList = document.querySelectorAll(".glass_list li");
@@ -103,7 +102,7 @@ window.addEventListener("DOMContentLoaded", () => {
           })
           numberList[0].classList.add('active');
 
-        }else if(scrollProgress3 > 0.5 && scrollProgress3 < 0.82222){
+        }else if(scrollProgress3 > 0.5 && scrollProgress3 < 0.78){
           console.log('두번째');
           glassList.forEach(item => {
           item.classList.remove('active');
