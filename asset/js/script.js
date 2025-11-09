@@ -59,22 +59,27 @@ window.addEventListener("DOMContentLoaded", () => {
     // glass box animation with sticky and extended scroll
     const glassBox = document.querySelector(".glass_box");
     if (glassBox) {
+      const sectionHome = document.querySelector("#home");
+      const sectionHomeTop = sectionHome.getBoundingClientRect().top;
+      const sectionHomeHeight = sectionHome.offsetHeight;
       const homeSection = document.querySelector("#home .first_content");
       const leftText = document.querySelector(
         "#home .sticky_container .left_text"
       );
+      
       const homeSectionTop = homeSection.getBoundingClientRect().top;
       const homeSectionHeight = homeSection.offsetHeight;
       const glassList = document.querySelectorAll(".glass_list li");
       const numberList = document.querySelectorAll(".number_list li");
-
       // #home 섹션 내에서 스크롤 진행도 계산
+
       if (homeSectionTop <= 0 && homeSectionTop + homeSectionHeight >= 0) {
         // 긴 스크롤 구간에서의 진행도 (0 ~ 1)
         const scrollProgress = Math.max(0,Math.min(1, Math.abs(homeSectionTop) / (homeSectionHeight * 0.25 - window.innerHeight)));
         const scrollProgress2 = Math.max(0,Math.min(1, Math.abs(homeSectionTop) / (homeSectionHeight * 0.5 - window.innerHeight)));
         const scrollProgress3 = Math.max(0, Math.min(1, Math.abs(homeSectionTop) / (homeSectionHeight * 1 - window.innerHeight)));
-        console.log(scrollProgress3);
+
+  
 
         // 회전각도: 15도에서 0도로 천천히
         const rotation = 15 - 15 * scrollProgress;
@@ -125,8 +130,21 @@ window.addEventListener("DOMContentLoaded", () => {
           })
           numberList[2].classList.add('active');
         }
+console.log(homeSectionTop + homeSectionHeight);
 
-      
+// 섹션 끝 구간에서만 동작 (마지막 화면 높이만큼의 구간)
+if (homeSectionTop <= -(homeSectionHeight - window.innerHeight) && 
+    homeSectionTop >= -homeSectionHeight) {
+    
+    // 섹션 끝 구간에서의 진행도 (0 ~ 1)
+    let progress = (Math.abs(homeSectionTop) - (homeSectionHeight - window.innerHeight)) / window.innerHeight;
+    let translateValue = Math.max(0, 
+        Math.min(progress * window.innerHeight, window.innerHeight)
+    );
+    
+    console.log(translateValue);
+    homeSection.style.transform = `translateY(${translateValue}px)`;
+}
         leftText.style.top = `${textTop}%`;
         glassBox.style.transform = `translateY(${translateY}%) rotate(${rotation}deg) scale(${scale})`;
         glassBox.style.opacity = opacity;

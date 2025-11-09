@@ -420,11 +420,16 @@ body::-webkit-scrollbar {
 #home {
   position: relative;
 }
+#home > .box{
+  
+}
+
 #home .first_content {
   height: 1000vh;
   position: sticky;
   z-index:-1;
   top:0;
+  transition:all 0.05s ease;
 }
 
 #home .sticky_container {
@@ -599,6 +604,7 @@ body::-webkit-scrollbar {
   width:fit-content;
   position:sticky;
   top:0;
+  height: 100vh;
 }
 
 .black_container .flex_box{
@@ -620,15 +626,45 @@ text-align: center;
 text-transform: uppercase;
 margin-bottom: 68px;
   }
+  & .text_mosigi {
+    position:relative;
+    text-align:center;
+    display:inline-block;
+    & .hidden {
+      --select_color:#fff;
+      position: absolute;
+      width:0px;
+      overflow:hidden;
+      white-space: nowrap;
+      top:0;
+      left:0;
+      color:var(--select_color);
+    }
+  }
   & span {
     font-family: "Neue Regrade";
 font-weight: 100;
 font-size: 44px;
 line-height: 56px;
-letter-spacing: -2%;
+/* letter-spacing: -2%; */
 text-align: center;
+white-space: nowrap;
     color :rgba(255,255,255,0.4)
   }
+}
+
+.black_container .brand_story .text_mosigi .hidden{
+  /* letter-spacing:-3px; */
+  /* font-weight:500; */
+
+  -webkit-text-stroke: 1.5px var(--select_color);
+}
+.black_container .brand_story .text_mosigi:nth-of-type(3) .hidden{
+  --select_color: #79A0CC;
+  /* font-weight: 700; */
+  -webkit-text-stroke: 3.5px var(--select_color);
+  /* text-indent:0; */
+  /* letter-spacing: -3.8px; */
 }
 
 .black_container .right_image {
@@ -665,5 +701,148 @@ line-height: 43px;
     top:762px;
     left:40px;
   }
-
 }
+
+.black_container .last_flex{
+  display:flex;
+  min-width: 100vw;
+  align-items: center;
+  padding-left:120px;
+  position: relative;
+  justify-content: space-between;
+  height:100vh;
+  overflow:hidden;
+}
+
+.black_container .logo_motion{
+  max-width:897px;
+  margin-bottom:26px;
+  position:absolute;
+  top:0;
+  z-index:99;
+  transition: all 3s ease;
+  & img {
+    width:100%;
+  }
+}
+
+
+.black_container .logo_motion.active{
+  transform: scale(680);
+  transition: all 10s ease;
+}
+
+@keyframes logoGrow {
+  0% {
+    transform:scale() rotate(0deg);
+    max-width:unset;
+    
+  }
+}
+.black_container .last_flex .ele_04{
+  position:Relative;
+  padding-top: calc(93.95px + 26px)
+} 
+.black_container .last_flex .ele_04:has(.logo_motion.active){
+  /* position:static; */
+}
+
+
+.black_container .design_ele {
+  font-size:25px;
+  color:#fff;
+  font-family: 'Neue Regrade';
+font-weight: 500;
+font-size: 25px;
+text-transform: uppercase;
+}
+
+.black_container .design_ele.design_ele_02{
+  margin-bottom:220px;
+  margin-right:137px;
+  margin-top: 20px;
+  text-align:right;
+}
+.black_container .design_ele.design_ele_03{
+font-weight: 700;
+margin-bottom:33px;
+}
+
+.black_container .design_ele.design_ele_04{
+font-weight: 100;
+font-size: 25px;
+line-height: 36px;
+text-transform: none;
+margin-bottom: 105px;
+}
+.black_container .last_flex .ele_05{
+  width:1174px;
+  position:absolute;
+  top: -260px;
+  right:-140px;
+
+  & img {
+    width:100%;
+  }
+}
+
+.black_container .rolling_symbol{
+  max-width:65px;
+  position: relative;
+  cursor: pointer;
+  
+  & img {
+    transition: all 0.5s ease;
+    animation: symbolRolling 3s linear infinite;
+    width:100%;
+  }
+  &.show_cursor img{
+    animation: symbolRollingEnd 0.5s ease forwards;
+  }
+  & span {
+    position: absolute;
+    left: 60%;
+    color: #fff;
+    top: 80%;
+    & svg{
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.5s ease;
+      max-width: 25px;
+      height: 25px;
+      animation: doongdoong 2s ease infinite;
+    }
+  }
+  &.show_cursor span svg{
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes symbolRolling{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes symbolRollingEnd{
+  to{
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes doongdoong{
+  0%{
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(-20px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+
