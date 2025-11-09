@@ -836,13 +836,20 @@ margin-bottom: 105px;
 
 @keyframes doongdoong{
   0%{
-    transform: translateY(0px);
+    transform: translate(10px,10px) scale(1);
+  }
+  45%{
+    transform: translate(-5px,-5px) scale(1);
   }
   50%{
-    transform: translateY(-20px);
+    transform: translate(-5px,-5px) scale(1.15);
+  }
+  55%{
+    transform: translate(-5px,-5px) scale(1);
   }
   100%{
-    transform: translateY(0px);
+    transform: translate(10px,10px) scale(1);
   }
+  
 }
 

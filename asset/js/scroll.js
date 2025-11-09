@@ -3,8 +3,18 @@ gsap.registerPlugin(ScrollTrigger)
 const blackContainer = document.querySelector('.black_container');
 const fixBox = document.querySelector('#home .fix_box');
 const blackStyle = blackContainer.getBoundingClientRect();
+
+
+let blackEnd = true;
 let blackFlag = false;
 fixBox.style.height = ((blackStyle.width - window.innerWidth) * 3) + "px";
+
+window.addEventListener('wheel', (e)=>{
+  if(e.deltaY > 0 && !blackEnd){
+    e.preventDefault();
+  }
+},{passive:false})
+
 const rollingSymbol = document.querySelector('.rolling_symbol');
 
 rollingSymbol.addEventListener('click', ()=>{
@@ -15,7 +25,9 @@ rollingSymbol.addEventListener('click', ()=>{
   }
 })
 
-gsap.to(".black_container", {
+
+
+const blackTrigger = gsap.to(".black_container", {
   x: (blackStyle.width - window.innerWidth) * -1,
   scrollTrigger: {
     trigger: ".fix_box",
@@ -45,8 +57,23 @@ gsap.to(".black_container", {
       if(!blackFlag){
         blackFlag = true;
       }
+      
       const clickSymbol = document.querySelector('.black_container .rolling_symbol');
       clickSymbol.classList.add('show_cursor');
+    },
+
+    onUpdate: (self) => {
+      if(self.progress > 0.9 && self.progress < 1){
+        // blackEnd = false;
+        
+        // window.scrollTo({
+        //   left:0,
+        //   top: blackStyle.bottom + window.scrollY - window.innerHeight,
+        //   behavior:'smooth',
+        // })
+      } else{
+        blackEnd = true;
+      }
     }
   }
 });
