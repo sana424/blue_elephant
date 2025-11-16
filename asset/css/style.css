@@ -597,7 +597,14 @@ body::-webkit-scrollbar {
   position:Relative;
   background-color: #040404;
   border-radius: 150px 150px 0 0 ;
+  transition: all 0.5s ease;
 }
+
+#home .fix_box.dis{
+  opacity: 0;
+  visibility: hidden;
+}
+
 #home .black_container {
   min-height:100vh;
   display:flex;
@@ -851,5 +858,13 @@ margin-bottom: 105px;
     transform: translate(10px,10px) scale(1);
   }
   
+}
+
+#hori .slide{
+  font-family: 'Gealova';
+  font-size: 200px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 

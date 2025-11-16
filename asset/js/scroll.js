@@ -20,12 +20,21 @@ const rollingSymbol = document.querySelector('.rolling_symbol');
 rollingSymbol.addEventListener('click', ()=>{
   const blackLogo = document.querySelector('.black_container .logo_motion');
 
+  setTimeout(fixOpa(true),5000);
   if(blackFlag){
     blackLogo.classList.add('active');
   }
 })
 
+const fixOpa = (dir) => {
 
+if(dir){
+  fixBox.classList.add('dis')
+}else{
+  fixBox.classList.remoce('dis')
+}
+
+}
 
 const blackTrigger = gsap.to(".black_container", {
   x: (blackStyle.width - window.innerWidth) * -1,
@@ -141,6 +150,18 @@ gsap.from("#home .ele_05", {
     trigger: ".fix_box",
     start: `top+=${blackStyle.width * 1}px top`,
     end: `top+=${blackStyle.width * 1.5 }px top`,  
+    scrub: true
+  }
+})
+
+const viewWidth = window.innerWidth;
+
+gsap.from("#hori .from_left", {
+    x: 100,
+  scrollTrigger: {
+    trigger: "#hori",
+    start : 'top top',
+    end : 'center top',
     scrub: true
   }
 })
