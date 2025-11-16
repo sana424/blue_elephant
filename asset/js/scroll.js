@@ -16,16 +16,30 @@ window.addEventListener('wheel', (e)=>{
 },{passive:false})
 
 const rollingSymbol = document.querySelector('.rolling_symbol');
-
+/** 
+ * 다시 올라갔을 때 얀 제거
+ * setTimeout 해결
+*/
 rollingSymbol.addEventListener('click', ()=>{
   const blackLogo = document.querySelector('.black_container .logo_motion');
+
+  setTimeout(fixOpa(true), 5000);
+
 
   if(blackFlag){
     blackLogo.classList.add('active');
   }
 })
 
+const fixOpa = (dir)=> {
 
+if(dir){
+  fixBox.classList.add('dis')
+}else{
+  fixBox.classList.remove('dis')
+}
+
+}
 
 const blackTrigger = gsap.to(".black_container", {
   x: (blackStyle.width - window.innerWidth) * -1,
@@ -145,30 +159,14 @@ gsap.from("#home .ele_05", {
   }
 })
 
-gsap.registerPlugin(ScrollTrigger) 
+const viewWidth = window.innerWidth;
 
-const blackContainer = document.querySelector('.black_container');
-const fixBox = document.querySelector('#home .fix_box');
-const blackStyle = blackContainer.getBoundingClientRect();
-
-fixBox.style.height = blackStyle.width + "px";
-
-gsap.to(".black_container", {
-  x: blackStyle.width * -1, 
+gsap.from("#hori .from_left", {
+    x: viewWidth,
   scrollTrigger: {
-    trigger: ".fix_box",
-    start: `${blackStyle.width * 0.4}px 80%`,
-    end: "bottom 20%",  
-    scrub: true     
-  }
-});
-
-gsap.from("#home .ele_01", {
-    y: 500,
-  scrollTrigger: {
-    trigger: ".fix_box",
-    start: `${blackStyle.width * 0.3}px 80%`,
-    end: `${blackStyle.width * 0.8}px 20%`,  
+    trigger: "#hori",
+    start: 'top top',
+    end: 'center top',
     scrub: true
   }
 })
