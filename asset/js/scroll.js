@@ -23,20 +23,18 @@ const rollingSymbol = document.querySelector('.rolling_symbol');
 rollingSymbol.addEventListener('click', ()=>{
   const blackLogo = document.querySelector('.black_container .logo_motion');
 
-  setTimeout(fixOpa(true), 5000);
-
-
+  setTimeout(fixOpa(true),5000);
   if(blackFlag){
     blackLogo.classList.add('active');
   }
 })
 
-const fixOpa = (dir)=> {
+const fixOpa = (dir) => {
 
 if(dir){
   fixBox.classList.add('dis')
 }else{
-  fixBox.classList.remove('dis')
+  fixBox.classList.remoce('dis')
 }
 
 }
@@ -162,11 +160,11 @@ gsap.from("#home .ele_05", {
 const viewWidth = window.innerWidth;
 
 gsap.from("#hori .from_left", {
-    x: viewWidth,
+    x: 100,
   scrollTrigger: {
     trigger: "#hori",
-    start: 'top top',
-    end: 'center top',
+    start : 'top top',
+    end : 'center top',
     scrub: true
   }
 })
