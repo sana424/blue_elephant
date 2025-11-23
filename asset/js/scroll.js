@@ -172,37 +172,70 @@ gsap.from("#home .ele_05", {
 const viewWidth = window.innerWidth;
 const viewHeight = window.innerHeight;
 
-gsap.from("#hori .from_left", {
-    x: viewWidth + 500,
-  scrollTrigger: {
-    trigger: "#hori",
-    start : 'top top',
-    end : 'center bottom',
-    scrub: true,
-    onUpdate: (self) => {
-      if(self.progress > 0.25){
-        document.querySelector('#hori .from_left').classList.remove('white_black')
-        document.querySelector('#hori .from_right').classList.add('white_black')
-      }else{
-        document.querySelector('#hori .from_left').classList.add('white_black')
-        document.querySelector('#hori .from_right').classList.remove('white_black')
-      }
-    }
-  }
-})
-gsap.from("#hori .from_right", {
-    x: (viewWidth + 500) * -1,
-    scrollTrigger: {
-    trigger: "#hori",
-    start : 'top top',
-    end : 'center bottom',
-    scrub: true
-  }
-})
+// gsap.from("#hori .from_left", {
+//     x: viewWidth + 500,
+//   scrollTrigger: {
+//     trigger: "#hori",
+//     start : 'top top',
+//     end : 'center bottom',
+//     scrub: true,
+//     onUpdate: (self) => {
+//       if(self.progress > 0.25){
+//         document.querySelector('#hori .from_left').classList.remove('white_black')
+//         document.querySelector('#hori .from_right').classList.add('white_black')
+//       }else{
+//         document.querySelector('#hori .from_left').classList.add('white_black')
+//         document.querySelector('#hori .from_right').classList.remove('white_black')
+//       }
+//     }
+//   }
+// })
+// gsap.from("#hori .from_right", {
+//     x: (viewWidth + 500) * -1,
+//     scrollTrigger: {
+//     trigger: "#hori",
+//     start : 'top top',
+//     end : 'center bottom',
+//     scrub: true
+//   }
+// })
 
 gsap.from('#hori .product_list .glass_01',{
     x:(viewWidth / 2) * -1,
     y:(viewHeight / 2) * -1,
+    scrollTrigger: {
+    trigger: "#hori",
+    start : 'top top',
+    end : 'center top',
+    scrub: true
+    }
+})
+
+gsap.from('#hori .product_list .glass_02',{
+    x:(viewWidth / 2),
+    y:(viewHeight / 2) * -1,
+    scrollTrigger: {
+    trigger: "#hori",
+    start : 'top top',
+    end : 'center top',
+    scrub: true
+    }
+})
+
+gsap.from('#hori .product_list .glass_03',{
+    x:(viewWidth / 2) * -1,
+    y:(viewHeight / 2),
+    scrollTrigger: {
+    trigger: "#hori",
+    start : 'top top',
+    end : 'center top',
+    scrub: true
+    }
+})
+
+gsap.from('#hori .product_list .glass_04',{
+    x:(viewWidth / 2),
+    y:(viewHeight / 2),
     scrollTrigger: {
     trigger: "#hori",
     start : 'top top',

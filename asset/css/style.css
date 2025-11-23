@@ -4,6 +4,7 @@
 
 body {
   overflow-x: hidden;
+  background-color: #fff;
 }
 body::-webkit-scrollbar {
   display: none;
@@ -870,7 +871,7 @@ margin-bottom: 105px;
   top: 45%;
   left: 0;
   z-index: -1;
-  transform: translate(-100%, -100px);
+  transform: translate(100%, -100px);
   width: fit-content;
   transition: color 0.5s ease;
 }
@@ -880,9 +881,42 @@ margin-bottom: 105px;
   -webkit-text-stroke: 1px var(--primary_color);
 }
 
-#hori .slide.from_right{
-  transform: translate(100%, 100px);
+
+#hori .slide.from_left{
+  --direction : -100px;
+  animation: autoSlide 15s linear infinite;
 }
+
+#hori .slide.from_right{
+    --direction : 100px;
+  transform: translate(100%, 100px);
+  animation: autoSlide 15s linear infinite reverse;
+}
+
+
+
+@keyframes autoSlide{
+  0%{
+    color: #21212100;
+    -webkit-text-stroke: 1px var(--primary_color);
+    transform: translate(100%, var(--direction));
+  }
+  49%{
+    color: #21212100;
+    -webkit-text-stroke: 1px var(--primary_color);
+  }
+  51%{
+    color: #212121;
+    -webkit-text-stroke: 1px var(--primary_color);
+  }
+  100%{
+    color: #212121;
+    -webkit-text-stroke: 1px var(--primary_color);
+    transform: translate(-100%, var(--direction));
+  }
+}
+
+
 
 /* 
 fixed : 전체화면을 고정
@@ -930,4 +964,77 @@ sticky : 스크롤되는 부모요소에 고정
 
 #hori .product_list .glass_04 img{
   width: min(51.95vw, 997px);
+}
+
+#hori .blur_product{
+  z-index: 9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(7px);
+  visibility: hidden;
+  opacity: 0;
+}
+
+#hori .blur_product.active{
+  visibility: visible;
+  opacity: 1;
+}
+
+#hori .product_about{
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+#hori .product_about .show_button button{
+  background: none;
+  border: none;
+  position: absolute;
+  z-index: 10;
+}
+
+#hori .product_about .about_glass_01 .show_button button{
+  top: 7.1vw;
+  left: 43.22vw;
+}
+#hori .product_about .about_glass_02 .show_button button{
+  top: 13.34vw;
+  right: 22.39vw;
+}
+#hori .product_about .about_glass_03 .show_button button{
+  left: 13.63vw;
+  bottom: 6.87vw;
+}
+#hori .product_about .about_glass_04 .show_button button{
+  right: 28.08vw;
+  bottom: 4.57vw;
+}
+
+
+#hori .product_about .show_button button #baseCircle{
+  transform: rotate(-180deg);
+  transform-origin: center center;
+}
+
+#hori .product_about .show_button button #circle01{
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  transform: rotate(-180deg);
+  transition: all 5s ease;
+  transform-origin: center center;
+}
+
+#hori .product_about .show_button button:hover #circle01{
+  stroke-dashoffset: 0;
+}
+
+#hori .product_about .detail_box{
+  display: none;
 }
