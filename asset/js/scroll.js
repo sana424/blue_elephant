@@ -5,11 +5,12 @@ const fixBox = document.querySelector('#home .fix_box');
 const blackStyle = blackContainer.getBoundingClientRect();
 
 
-let blackEnd = true;
+let blackEnd = true; // true: 아래 스크롤 가능, false: 아래 스크롤 차단
 let blackFlag = false;
 fixBox.style.height = ((blackStyle.width - window.innerWidth) * 3) + "px";
 
 window.addEventListener('wheel', (e)=>{
+  // 스크롤 끝에 도달했고(blackEnd=false), 아래로 스크롤하려 할 때만 차단
   if(e.deltaY > 0 && !blackEnd){
     e.preventDefault();
   }
@@ -23,7 +24,13 @@ const rollingSymbol = document.querySelector('.rolling_symbol');
 rollingSymbol.addEventListener('click', ()=>{
   const blackLogo = document.querySelector('.black_container .logo_motion');
 
-  setTimeout(fixOpa(true),5000);
+  // 심볼 클릭 시 아래 스크롤 다시 가능하게
+  blackEnd = true;
+
+  setTimeout(()=>{
+    fixOpa(true);
+  }, 5000);
+
   if(blackFlag){
     blackLogo.classList.add('active');
   }
@@ -34,7 +41,7 @@ const fixOpa = (dir) => {
 if(dir){
   fixBox.classList.add('dis')
 }else{
-  fixBox.classList.remoce('dis')
+  fixBox.classList.remove('dis')
 }
 
 }
@@ -54,6 +61,10 @@ const blackTrigger = gsap.to(".black_container", {
       }
       const clickSymbol = document.querySelector('.black_container .rolling_symbol');
       clickSymbol.classList.remove('show_cursor');
+
+      // blackContainer 진입 시 fixOpa(false) - dis 클래스 제거
+      fixOpa(false);
+      blackEnd = true;
     },
     onEnterBack:()=> {
       const blackLogo = document.querySelector('.black_container .logo_motion');
@@ -63,29 +74,30 @@ const blackTrigger = gsap.to(".black_container", {
       }
       const clickSymbol = document.querySelector('.black_container .rolling_symbol');
       clickSymbol.classList.remove('show_cursor');
+
+      // 위로 스크롤해서 blackContainer로 돌아왔을 때 fixOpa(false) - dis 클래스 제거
+      fixOpa(false);
+      blackEnd = true;
     },
     
     onLeave:()=> {
       if(!blackFlag){
         blackFlag = true;
       }
-      
+
       const clickSymbol = document.querySelector('.black_container .rolling_symbol');
       clickSymbol.classList.add('show_cursor');
-    },
 
-    onUpdate: (self) => {
-      if(self.progress > 0.9 && self.progress < 1){
-        // blackEnd = false;
-        
-        // window.scrollTo({
-        //   left:0,
-        //   top: blackStyle.bottom + window.scrollY - window.innerHeight,
-        //   behavior:'smooth',
-        // })
-      } else{
-        blackEnd = true;
-      }
+      // fixBox 하단이 화면 하단에 오도록 스크롤 위치 고정 (먼저 실행)
+      const fixBoxRect = fixBox.getBoundingClientRect();
+      const targetScroll = window.scrollY + fixBoxRect.bottom - window.innerHeight;
+      window.scrollTo({
+        top: targetScroll,
+        behavior: 'smooth'
+      });
+
+      // 스크롤 이동 후 아래 스크롤 차단
+      blackEnd = false;
     }
   }
 });
