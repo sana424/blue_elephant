@@ -933,6 +933,14 @@ sticky : 스크롤되는 부모요소에 고정
 
 #hori .product_list .glass{
   position: absolute;
+  visibility: visible;
+  opacity: 1;
+  transition: all 1s ease;
+}
+
+#hori .product_list .glass.hide{
+  visibility: hidden;
+  opacity: 0;
 }
 
 #hori .product_list .glass_01{
@@ -993,11 +1001,25 @@ sticky : 스크롤되는 부모요소에 고정
 }
 
 
-#hori .product_about .show_button button{
+#hori .product_about .show_button button,
+#hori .product_about .detail_box button{
   background: none;
   border: none;
   position: absolute;
-  z-index: 10;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+#hori .product_about .show_button button{
+  visibility: hidden;
+  opacity: 0;
+
+  z-index: 8;
+}
+
+#hori .product_about.show .show_button button{
+  visibility: visible;
+  opacity: 1;
 }
 
 #hori .product_about .about_glass_01 .show_button button{
@@ -1023,18 +1045,222 @@ sticky : 스크롤되는 부모요소에 고정
   transform-origin: center center;
 }
 
-#hori .product_about .show_button button #circle01{
+#hori .product_about .show_button button #circle01,
+#hori .product_about .detail_box button #circle02{
   stroke-dasharray: 500;
   stroke-dashoffset: 500;
   transform: rotate(-180deg);
-  transition: all 5s ease;
+  transition: all 2s ease;
   transform-origin: center center;
 }
 
-#hori .product_about .show_button button:hover #circle01{
+#hori .product_about .show_button button:hover #circle01,
+#hori .product_about .detail_box button:hover #circle02{
   stroke-dashoffset: 0;
+  transition: all 4s ease;
 }
 
 #hori .product_about .detail_box{
-  display: none;
+  display: inline-block;
+  padding: 45px 50px;
+  border-radius: 25px;
+  background: #dad6cc;
+  font-family: "Neue Regrade";
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 38px;
+  letter-spacing: 0%;
+  position: absolute;
+
+  z-index: 11;
+}
+
+#hori .product_about .detail_box strong{
+  font-weight: 700;
+}
+
+#hori .product_about .detail_box button{
+  top: -71px;
+  left: -75px;
+}
+
+#hori .product_about .detail_box{
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+#hori .product_about .detail_box.show{
+  visibility: visible;
+  opacity: 1;
+}
+
+#hori .product_about:has(.detail_box.show) .show_button button{
+  visibility: hidden;
+  opacity: 0;
+}
+
+#hori .product_about .about_glass_01 .detail_box{
+  display: block;
+  top: 17.96vw;
+  right: 18.64vw;
+}
+
+#hori .product_about .about_glass_02 .detail_box{
+  top: 17.96vw;
+  right: 32.64vw;
+}
+
+#hori .product_about .about_glass_03 .detail_box{
+  top: 30.96vw;
+  right: 36.64vw;
+}
+
+#hori .product_about .about_glass_04 .detail_box{
+  top: 23.96vw;
+  right: 43.64vw;
+}
+
+#hori .product_about .about_glass_02 .detail_box button{
+  left: auto;
+  right: -75px;
+}
+
+#hori .product_about .about_glass_04 .detail_box button{
+  left: auto;
+  right: -75px;
+  top: auto;
+  bottom: -71px;
+}
+
+#hori .product_about .glass_change{
+
+}
+
+#hori .product_about .glass_change li{
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s ease;
+    position: absolute;
+    z-index: 10;
+}
+
+#hori .product_about .glass_change li.show{
+  visibility: visible;
+  opacity: 1;
+}
+
+#hori .product_about .glass_change li:first-child{
+  --goal-x: 0vw;
+  --goal-y: 4vw;
+  top: -13vw;
+  left: -2vw;
+}
+
+#hori .product_about .glass_change li:first-child img{
+  transform: scale(1.15);
+}
+
+#hori .product_about .glass_change li:first-child.show{
+  transform: translate(0px, 4vw);
+  animation: ding 1s linear alternate;
+}
+
+#hori .product_about .glass_change li:nth-child(2){
+  --goal-x: -5vw;
+  --goal-y: 0vw;
+  right: -20vw;
+  top: 3.5vh;
+}
+
+#hori .product_about .glass_change li:nth-child(2) img{
+  width: min(59.94vw, 1151px);
+}
+
+#hori .product_about .glass_change li:nth-child(2).show{
+  transform: translate(-5vw, 0px);
+  animation: ding 1s linear alternate;
+}
+
+#hori .product_about .glass_change li:nth-child(3){
+  --goal-x: 4vw;
+  --goal-y: 0vw;
+  left: -36vw;
+  bottom: 3.5vh;
+}
+
+#hori .product_about .glass_change li:nth-child(3) img{
+  width: min(75vw, 1440px);
+}
+
+#hori .product_about .glass_change li:nth-child(3).show{
+  transform: translate(4vw, 0px);
+  animation: ding 1s linear alternate;
+}
+
+#hori .product_about .glass_change li:nth-child(4){
+  --goal-x: -4vw;
+  --goal-y: 0vw;
+  right: -9.72vw;
+  bottom: 2.7vh;
+}
+
+#hori .product_about .glass_change li:nth-child(4) img{
+  width: min(51.95vw, 997px);
+}
+
+#hori .product_about .glass_change li:nth-child(4).show{
+  transform: translate(-4vw, 0px);
+  animation: ding 1s linear alternate;
+}
+
+
+
+@keyframes ding{
+  0%{
+    transform:translate(0, 0) scale(1);
+  }
+  5%{
+    transform:translate(calc((var(--goal-x) / 100) * 5), calc((var(--goal-y) / 100) * 5)) scale(1.1)
+  }
+  10%{
+    transform:translate(calc((var(--goal-x) / 100) * 10), calc((var(--goal-y) / 100) * 10)) scale(1.0)
+  }
+  100%{
+    transform:translate(var(--goal-x), var(--goal-y)) scale(1)
+  }
+}
+
+#hori .product_about .bottom_line{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 110px;
+  position: absolute;
+  left: 0;
+  bottom: 3vh;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+#hori .product_about.show .bottom_line{
+  visibility: visible;
+  opacity: 1;
+}
+
+#hori .bottom_line .line{
+  height: 1px;
+  flex: 1;
+  background-color: #797979;
+}
+
+#hori .bottom_line .text{
+  font-family: "Neue Regrade";
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 43px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
 }

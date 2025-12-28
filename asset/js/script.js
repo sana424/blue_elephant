@@ -96,7 +96,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const textTop = 160 - 160 * scrollProgress2 - 30;
         // 스타일 적용
         if(scrollProgress3 > 0.5 && scrollProgress3 < 0.6666){
-          console.log('첫번째');
+          // console.log('첫번째');
           glassList.forEach(item => {
           item.classList.remove('active');
           })
@@ -108,7 +108,7 @@ window.addEventListener("DOMContentLoaded", () => {
           numberList[0].classList.add('active');
 
         }else if(scrollProgress3 > 0.5 && scrollProgress3 < 0.78){
-          console.log('두번째');
+          // console.log('두번째');
           glassList.forEach(item => {
           item.classList.remove('active');
           })
@@ -119,7 +119,7 @@ window.addEventListener("DOMContentLoaded", () => {
           })
           numberList[1].classList.add('active');
         }else if(scrollProgress3 > 0.5 && scrollProgress3 < 1){
-          console.log('세번째');   
+          // console.log('세번째');   
           glassList.forEach(item => {
           item.classList.remove('active');
           })
@@ -130,7 +130,7 @@ window.addEventListener("DOMContentLoaded", () => {
           })
           numberList[2].classList.add('active');
         }
-console.log(homeSectionTop + homeSectionHeight);
+// console.log(homeSectionTop + homeSectionHeight);
 
 // 섹션 끝 구간에서만 동작 (마지막 화면 높이만큼의 구간)
 if (homeSectionTop <= -(homeSectionHeight - window.innerHeight) && 
@@ -142,7 +142,7 @@ if (homeSectionTop <= -(homeSectionHeight - window.innerHeight) &&
         Math.min(progress * window.innerHeight, window.innerHeight)
     );
     
-    console.log(translateValue);
+    // console.log(translateValue);
     homeSection.style.transform = `translateY(${translateValue}px)`;
 }
         leftText.style.top = `${textTop}%`;

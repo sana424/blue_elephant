@@ -206,10 +206,23 @@ gsap.from('#hori .product_list .glass_01',{
     scrollTrigger: {
     trigger: "#hori",
     start : 'top top',
-    end : 'center top',
-    scrub: true
-    }
-})
+    end : `center-=${window.innerHeight} top`,
+    scrub: true,
+    onLeave: ()=> {
+      const productAbout = document.querySelector('#hori .product_about');
+      productAbout.classList.add('show')
+    },
+    onEnter: ()=> {
+      const productAbout = document.querySelector('#hori .product_about');
+      productAbout.classList.remove('show')
+    },
+    onEnterBack: ()=> {
+      const productAbout = document.querySelector('#hori .product_about');
+      productAbout.classList.remove('show')
+    },
+}}
+)
+
 
 gsap.from('#hori .product_list .glass_02',{
     x:(viewWidth / 2),
@@ -217,7 +230,7 @@ gsap.from('#hori .product_list .glass_02',{
     scrollTrigger: {
     trigger: "#hori",
     start : 'top top',
-    end : 'center top',
+    end : `center-=${window.innerHeight} top`,
     scrub: true
     }
 })
@@ -228,7 +241,7 @@ gsap.from('#hori .product_list .glass_03',{
     scrollTrigger: {
     trigger: "#hori",
     start : 'top top',
-    end : 'center top',
+    end : `center-=${window.innerHeight} top`,
     scrub: true
     }
 })
@@ -239,7 +252,7 @@ gsap.from('#hori .product_list .glass_04',{
     scrollTrigger: {
     trigger: "#hori",
     start : 'top top',
-    end : 'center top',
+    end : `center-=${window.innerHeight} top`,
     scrub: true
     }
 })
