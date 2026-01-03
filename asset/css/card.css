@@ -1,5 +1,5 @@
 #card{
-    height: 1200vh;
+    height: 2000vh;
     background: var(--primary_color);
     position: relative;
     z-index: 101;
@@ -33,7 +33,8 @@
     height: 100vh;
     width: 100vw;
     
-    transform: translateX(-100%);
+    transform: translateX(0%);
+    /* transition: all 0.1s; */
 }
 
 .card_lists{
@@ -42,12 +43,18 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    transition: all 0.5s ease;
+
+}
+
+.card_lists.active_blur{
+    backdrop-filter: blur(4px);
 }
 
 .card_lists li{
     --rotate: 0deg;
     --ts_x : 0vw;
-    --ts_y : 0vw;
+    --ts_y : 0vh;
     position: absolute;
     width: 343px;
     height: 382px;
@@ -61,15 +68,23 @@
 
 .card_lists li:nth-child(2){
     --rotate: 4deg;
+    --ts_x : 0.5vw;
+    --ts_y : -0.5vh;
 }
 .card_lists li:nth-child(3){
     --rotate: 7deg;
+    --ts_x : 1vw;
+    --ts_y : -1vh;
 }
 .card_lists li:nth-child(4){
     --rotate: 11deg;
+    --ts_x : 1.5vw;
+    --ts_y : -0.2vh;
 }
 .card_lists li:nth-child(5){
     --rotate: 15deg;
+    --ts_x : 2vw;
+    --ts_y : 0.75vh;
 }
 
 .card_lists li img{
