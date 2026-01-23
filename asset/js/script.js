@@ -62,6 +62,9 @@ window.addEventListener("DOMContentLoaded", () => {
       const sectionHome = document.querySelector("#home");
       const sectionHomeTop = sectionHome.getBoundingClientRect().top;
       const sectionHomeHeight = sectionHome.offsetHeight;
+      const sectionHome = document.querySelector("#home");
+      const sectionHomeTop = sectionHome.getBoundingClientRect().top;
+      const sectionHomeHeight = sectionHome.offsetHeight;
       const homeSection = document.querySelector("#home .first_content");
       const leftText = document.querySelector(
         "#home .sticky_container .left_text"
