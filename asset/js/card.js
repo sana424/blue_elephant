@@ -48,9 +48,12 @@ gsap.from('#card .card_text',{
 
 
 const cardList = document.querySelector('#card .card_lists');
+const cardList2 = document.querySelector('#card .card_lists_2');
 const cardlists = document.querySelectorAll('#card .card_lists li');
-
+const secondTopText = document.querySelector('#card .second_top_text');
+const hiding = document.querySelector('#card .hiding');
 let duration = 800
+
 
 gsap.to('#card .card_text',{
     x: window.innerWidth * -1,
@@ -59,6 +62,57 @@ gsap.to('#card .card_text',{
     start: `center+=${(duration * cardlists.length - 1) + duration}px top`,
     end: `center+=${(duration * cardlists.length - 1) + duration + 2000}px top`,
     scrub: true,
+    onLeave: (self)=>{
+        cardlists.forEach((item) => {
+            item.style.translate = '';
+            item.style.rotate = '';
+            item.style.scale = '';
+            item.style.transform = '';
+            item.style.transition = 'all 0.5s ease';
+
+            setTimeout(()=>{
+                item.style.transition = '';
+            },500)
+
+        })
+        cardList.classList.add('semi_circle')
+        secondTopText.classList.add('show');
+
+        ScrollTrigger.create({
+            trigger: "body",
+            start: ()=> self.end += 3500,
+            onEnter: ()=> {
+                console.log( 'ddddd')
+                cardList.classList.add('roll');
+                cardList2.classList.add('roll');
+                hiding.classList.add('hidden')
+            },
+            onLeaveBack: ()=> {
+                cardList.classList.remove('roll');
+                cardList2.classList.remove('roll')
+                hiding.classList.remove('hidden')
+            },
+            onEnterBack: ()=> {
+                cardList.classList.remove('roll');
+                cardList2.classList.remove('roll')
+                hiding.classList.remove('hidden')
+            }
+
+        })
+    },
+    onEnterBack: ()=> {
+        
+
+        cardlists.forEach((item) => {
+            item.style.transition = 'all 0.3s ease';
+
+            setTimeout(()=>{
+                item.style.transition = '';
+            },350)
+        })
+        cardList.classList.remove('semi_circle');
+        secondTopText.classList.remove('show');
+    }
 }
 })
 
@@ -94,13 +148,15 @@ cardlists.forEach((item,index) => {
                 cardList.classList.add('active_blur');
             }
         }
-
         }
     })
 })
 
+cardList2.querySelectorAll('li').forEach(item => {
+
+})
+
 /** 
- * 1. 백그라운드 텍스트가 가운데 온다
  * 2. 텍스트 블러처리 후 카드가 올라오기 시작
  * 3. 카드가 다 올라온 후 텍스트 왼쪽으로 사라짐 
  * 4. 카드 펼쳐짐
