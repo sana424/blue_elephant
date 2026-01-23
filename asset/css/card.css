@@ -1,5 +1,5 @@
 #card{
-    height: 2000vh;
+    height: 3000vh;
     background: var(--primary_color);
     position: relative;
     z-index: 101;
@@ -37,18 +37,31 @@
     /* transition: all 0.1s; */
 }
 
-.card_lists{
+.card_lists,
+.card_lists_2{
     position: sticky;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    transition: all 0.5s ease;
+    transition: all 1s ease;
+    transform-origin: center 4000px;
+}
 
+.card_lists_2{
+    transform: rotate(35deg);
 }
 
 .card_lists.active_blur{
     backdrop-filter: blur(4px);
+}
+
+.card_lists.roll{
+    transform: rotate(-35deg);
+}
+
+.card_lists_2.roll{
+    transform: rotate(0);
 }
 
 .card_lists li{
@@ -58,8 +71,6 @@
     position: absolute;
     width: 343px;
     height: 382px;
-    border-radius: 30px;
-    overflow: hidden;
 
     top: 50%;
     left: 50%;
@@ -93,4 +104,153 @@
     object-fit: cover;
 }
 
+.second_top_text{
+    position: sticky;
+    top: 15%;
+    color: #fff;
+    /* filter: blur(100px); */
+    transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+    visibility: hidden;
+    opacity: 0;
+}
 
+.second_top_text.show{
+    /* filter: blur(0); */
+    transition: all 1s cubic-bezier(0.76, 0, 0.24, 1);
+    visibility: visible;
+    opacity: 1;
+}
+
+.second_top_text * {
+    color: #fff;
+    text-align: center;
+}
+
+.second_top_text h3{
+    font-family: "Gealova";
+    font-size: 100px;
+    line-height: 96px;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.second_top_text h3 .hiding{
+    display: inline-flex;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    width: 175px;
+    padding-top: 4px;
+    margin-top: -4px;
+}
+
+.second_top_text h3 .hiding.hidden{
+    width: 0;
+}
+
+.second_top_text p{
+    font-family: 'Neue Regrade';
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 35px;
+    letter-spacing: -0.02em;
+}
+
+.second_top_text p span{
+    font-weight: 100;
+}
+
+/*  6 */
+.card_list li{
+    perspective :1000px;
+}
+.card_lists.semi_circle li{
+    transform-origin: center 4000px;
+    transition:all 0.3s ease;
+    top:72%;
+    --ts_x:0px;
+    --ts_y: 0px;
+
+}
+
+.card_lists_2 li .card_inner,
+.card_lists li .card_inner{
+    width:100%;
+    height:100%;
+    position:Relative;
+    transition: 0.5s ease;
+    transform-style: preserve-3d;
+}
+.card_lists_2 li:hover .card_inner,
+.card_lists.semi_circle li:hover .card_inner{
+    transform:rotateY(180deg);
+}
+.card_lists_2 li .card_inner .front,
+.card_lists_2 li .card_inner .back,
+.card_lists li .card_inner .front,
+.card_lists li .card_inner .back
+{
+    position:absolute;
+    width:100%;
+    height:100%;
+        border-radius: 30px;
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+.card_lists_2 li .card_inner .back,
+.card_lists li .card_inner .back{
+    transform:rotateY(180deg);
+}
+
+
+.card_lists.semi_circle li:nth-child(2){
+    --rotate:-6deg;
+}
+.card_lists.semi_circle li:nth-child(3){
+    --rotate:-12deg;
+}
+.card_lists.semi_circle li:nth-child(4){
+    --rotate:6deg;
+}
+.card_lists.semi_circle li:nth-child(5){
+    --rotate:12deg;
+}
+
+
+.card_lists_2 li{
+    --rotate: 0deg;
+    position: absolute;
+    width: 343px;
+    height: 382px;
+    transform-origin: center 4000px;
+    transition:all 0.3s ease;
+    top:72%;
+    --ts_x:0px;
+    --ts_y: 0px;
+    left: 50%;
+    perspective: 1000px;
+    transform: translate(calc(-50% + var(--ts_x)),calc(-50% + var(--ts_y))) rotate(calc(var(--rotate)));
+}
+.card_lists_2 li img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.card_lists_2 li:nth-child(2){
+    --rotate:-6deg;
+}
+.card_lists_2 li:nth-child(3){
+    --rotate:-12deg;
+}
+.card_lists_2 li:nth-child(4){
+    --rotate:6deg;
+}
+.card_lists_2 li:nth-child(5){
+    --rotate:12deg;
+    --left : 90%;
+}
+
+.card_lists_2 li.clicked .card_inner{
+    transform: rotate(calc(var(--rotate) * -1)) translateY(-30vh) rotateY(180deg);
+}

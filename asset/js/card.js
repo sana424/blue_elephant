@@ -46,7 +46,10 @@ gsap.from('#card .card_text',{
 })
 
 const cardList = document.querySelector('#card .card_lists');
+const cardList2 = document.querySelector('#card .card_lists_2');
 const cardlists = document.querySelectorAll('#card .card_lists li');
+const secondTopText = document.querySelector('#card .second_top_text');
+const hiding = document.querySelector('#card .hiding');
 
 let duration = 800
 
@@ -58,6 +61,54 @@ gsap.to('#card .card_text',{
     start: `center+=${(duration * cardlists.length - 1) + duration} top`,
     end: `center+=${(duration * cardlists.length - 1) + duration + 2000} top`,
     scrub: true,
+    onLeave: (self)=>{
+        cardlists.forEach((item)=>{
+            item.style.translate = '';
+            item.style.rotate = '';
+            item.style.scale = '';
+            item.style.transform = '';
+            item.style.transition = 'all 0.5s ease';
+
+            setTimeout(()=>{
+                item.style.transition = '';
+            },500)
+        })
+        cardList.classList.add('semi_circle')
+        secondTopText.classList.add('show');
+
+        ScrollTrigger.create({
+            trigger : "body",
+            start: ()=> self.end += 3500,
+            onEnter: ()=> {
+                console.log('ddddd')
+                cardList.classList.add('roll');
+                cardList2.classList.add('roll');
+                hiding.classList.add('hidden');
+            },
+            onLeaveBack:()=> {
+                cardList.classList.remove('roll');
+                cardList2.classList.remove('roll');
+                hiding.classList.remove('hidden');
+            },
+            onEnterBack: ()=> {
+                cardList.classList.remove('roll');
+                cardList2.classList.remove('roll');
+                hiding.classList.remove('hidden');
+            }
+        })
+    },
+    onEnterBack: ()=>{
+        cardlists.forEach((item)=>{
+                item.style.transition = 'all 0.3s ease';
+
+            setTimeout(()=>{
+                item.style.transition = '';
+            },350)
+        })
+        cardList.classList.remove('semi_circle')
+        secondTopText.classList.remove('show');
+
+    }
 }
 })
 
@@ -75,12 +126,12 @@ cardlists.forEach((item,index) => {
         scrub : true,
         onEnter : ()=>{
             if(index == 0 && !cardList.classList.contains('active_blur')){
-            cardList.classList.add('actve_blur');
+            cardList.classList.add('active_blur');
             }
         },
         onLeaveBack: ()=>{
             if(index == 0 && cardList.classList.contains('active_blur')){
-            cardList.classList.remove('actve_blur');
+            cardList.classList.remove('active_blur');
             }
 
         },
@@ -91,4 +142,7 @@ cardlists.forEach((item,index) => {
         }
         }
     })
+})
+
+cardList2.querySelectorAll('li').forEach(item => {
 })
