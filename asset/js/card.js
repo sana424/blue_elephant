@@ -80,17 +80,34 @@ gsap.to('#card .card_text',{
             trigger : "body",
             start: ()=> self.end += 3500,
             onEnter: ()=> {
-                console.log('ddddd')
+            cardList2.querySelectorAll('li').forEach(i2 => {
+            i2.classList.remove('clicked');
+        })
+        cardlists.forEach(i2 => {
+            i2.classList.remove('clicked');
+        })
                 cardList.classList.add('roll');
                 cardList2.classList.add('roll');
                 hiding.classList.add('hidden');
             },
             onLeaveBack:()=> {
+            cardList2.querySelectorAll('li').forEach(i2 => {
+            i2.classList.remove('clicked');
+        })
+        cardlists.forEach(i2 => {
+            i2.classList.remove('clicked');
+        })
                 cardList.classList.remove('roll');
                 cardList2.classList.remove('roll');
                 hiding.classList.remove('hidden');
             },
             onEnterBack: ()=> {
+            cardList2.querySelectorAll('li').forEach(i2 => {
+            i2.classList.remove('clicked');
+        })
+        cardlists.forEach(i2 => {
+            i2.classList.remove('clicked');
+        })
                 cardList.classList.remove('roll');
                 cardList2.classList.remove('roll');
                 hiding.classList.remove('hidden');
@@ -105,6 +122,12 @@ gsap.to('#card .card_text',{
                 item.style.transition = '';
             },350)
         })
+        cardList2.querySelectorAll('li').forEach(i2 => {
+            i2.classList.remove('clicked');
+        })
+        cardlists.forEach(i2 => {
+            i2.classList.remove('clicked');
+        })
         cardList.classList.remove('semi_circle')
         secondTopText.classList.remove('show');
 
@@ -114,6 +137,19 @@ gsap.to('#card .card_text',{
 
 
 cardlists.forEach((item,index) => {
+        item.addEventListener('click', ()=>{
+        cardList2.querySelectorAll('li').forEach(i2 => {
+            i2.classList.remove('clicked');
+        })
+        cardlists.forEach(i => {
+            if(i !== item){
+                i.classList.remove('clicked');
+            }
+        })
+        item.classList.toggle('clicked');
+    });
+
+
     gsap.from(item, {
         y: window.innerHeight * 0.8,
         rotateY : 80,
@@ -145,4 +181,13 @@ cardlists.forEach((item,index) => {
 })
 
 cardList2.querySelectorAll('li').forEach(item => {
+
+    item.addEventListener('click', ()=>{
+        cardList2.querySelectorAll('li').forEach(i => {
+            if(i !== item){
+                i.classList.remove('clicked');
+            }
+        })
+        item.classList.toggle('clicked');
+    })
 })
