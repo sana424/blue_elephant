@@ -39,3 +39,8 @@
     src: url(../font/Butler_Regular.otf) format('opentype');
     font-weight: 300;
 }
+
+@font-face {
+    font-family: 'Thesignature';
+    src: url(../font/Thesignature.ttf) format('truetype');
+}

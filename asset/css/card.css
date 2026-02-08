@@ -1,210 +1,227 @@
-#card{
-    height: 3000vh;
-    background: var(--primary_color);
-    position: relative;
-    z-index: 101;
+#card {
+  height: 38000px;
+  background: var(--primary_color);
+  position: relative;
+  z-index: 101;
 }
 
-.card_blind{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: var(--primary_color);
-    height: 100vh;
-    transition: 0.1s ease;
+.card_blind {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--primary_color);
+  height: 100vh;
+  transition: 0.1s ease;
 }
 
-.card_text{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Gealova";
-    font-size: 60px;
-    line-height: 80px;
-    letter-spacing: 0%;
-    text-align: center;
-    text-transform: uppercase;
-    color: #fff;
+.card_text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Gealova";
+  font-size: 60px;
+  line-height: 80px;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
 
-    position: sticky;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    
-    transform: translateX(0%);
-    /* transition: all 0.1s; */
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+
+  transform: translateX(0%);
+  /* transition: all 0.1s; */
 }
 
 .card_lists,
-.card_lists_2{
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    transition: all 1s ease;
-    transform-origin: center 4000px;
+.card_lists_2 {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: all 1s ease;
+  transform-origin: center 4000px;
 }
 
-.card_lists_2{
-    transform: rotate(35deg);
+.card_lists_2 {
+  transform: rotate(35deg);
 }
 
-.card_lists.active_blur{
-    backdrop-filter: blur(4px);
+.card_lists.active_blur {
+  backdrop-filter: blur(4px);
 }
 
-.card_lists.roll{
-    transform: rotate(-35deg);
+.card_lists.roll {
+  transform: rotate(-35deg);
 }
 
-.card_lists_2.roll{
-    transform: rotate(0);
+.card_lists_2.roll {
+  transform: rotate(0);
 }
 
-.card_lists li{
-    --rotate: 0deg;
-    --ts_x : 0vw;
-    --ts_y : 0vh;
-    position: absolute;
-    width: 343px;
-    height: 382px;
+.card_lists li {
+  --rotate: 0deg;
+  --ts_x: 0vw;
+  --ts_y: 0vh;
+  position: absolute;
+  width: 343px;
+  height: 382px;
 
-    top: 50%;
-    left: 50%;
-    transform: translate(calc(-50% + var(--ts_x)),calc(-50% + var(--ts_y))) rotate(var(--rotate));
-}
-
-.card_lists li:nth-child(2){
-    --rotate: 4deg;
-    --ts_x : 0.5vw;
-    --ts_y : -0.5vh;
-}
-.card_lists li:nth-child(3){
-    --rotate: 7deg;
-    --ts_x : 1vw;
-    --ts_y : -1vh;
-}
-.card_lists li:nth-child(4){
-    --rotate: 11deg;
-    --ts_x : 1.5vw;
-    --ts_y : -0.2vh;
-}
-.card_lists li:nth-child(5){
-    --rotate: 15deg;
-    --ts_x : 2vw;
-    --ts_y : 0.75vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% + var(--ts_x)), calc(-50% + var(--ts_y)))
+    rotate(var(--rotate));
 }
 
-.card_lists li img{
-    width:100%;
-    height: 100%;
-    object-fit: cover;
+.card_lists li:nth-child(2) {
+  --rotate: 4deg;
+  --ts_x: 0.5vw;
+  --ts_y: -0.5vh;
+}
+.card_lists li:nth-child(3) {
+  --rotate: 7deg;
+  --ts_x: 1vw;
+  --ts_y: -1vh;
+}
+.card_lists li:nth-child(4) {
+  --rotate: 11deg;
+  --ts_x: 1.5vw;
+  --ts_y: -0.2vh;
+}
+.card_lists li:nth-child(5) {
+  --rotate: 15deg;
+  --ts_x: 2vw;
+  --ts_y: 0.75vh;
 }
 
-.second_top_text{
-    position: sticky;
-    top: 15%;
-    color: #fff;
-    /* filter: blur(100px); */
-    transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-    visibility: hidden;
-    opacity: 0;
+.card_lists li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.second_top_text.show{
-    /* filter: blur(0); */
-    visibility: visible;
-    opacity: 1;
+.second_top_text {
+  position: sticky;
+  top: 15%;
+  color: #fff;
+  /* filter: blur(100px); */
+  transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.second_top_text.show {
+  /* filter: blur(0); */
+  visibility: visible;
+  opacity: 1;
 }
 
 .second_top_text * {
-    color: #fff;
-    text-align: center;
+  color: #fff;
+  text-align: center;
 }
 
-.second_top_text h3{
-    font-family: "Gealova";
-    font-size: 100px;
-    line-height: 96px;
-    letter-spacing: 0%;
-    text-transform: uppercase;
-    margin-bottom: 20px;
+.second_top_text h3 {
+  font-family: "Gealova";
+  font-size: 100px;
+  line-height: 96px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
-.second_top_text h3 .hiding{
-    display: inline-flex;
-    transition: all 0.5s ease;
-    overflow: hidden;
-    width: 175px;
-    padding-top: 4px;
-    margin-top: -4px;
+.second_top_text h3 .hiding {
+  display: inline-flex;
+  transition: all 0.5s ease;
+  overflow: hidden;
+  width: 175px;
+  padding-top: 4px;
+  margin-top: -4px;
 }
 
-.second_top_text h3 .hiding.hidden{
-    width: 0;
+.second_top_text h3 .hiding.hidden {
+  width: 0;
 }
 
-.second_top_text p{
-    font-family: 'Neue Regrade';
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 35px;
-    letter-spacing: -0.02em;
+.second_top_text p {
+  font-family: "Neue Regrade";
+  font-weight: 100;
+  font-size: 25px;
+  line-height: 35px;
+  letter-spacing: -0.02em;
 }
 
-.second_top_text p span{
-    font-weight: 100;
+.second_top_text p span.bold {
+  font-weight: 700;
+}
+
+.second_top_text .dis {
+  position: relative;
+}
+
+.second_top_text .dis::after {
+  content: "";
+  position: absolute;
+  bottom: -5%;
+  left: -5%;
+  right: -5%;
+  height: 0%;
+  background-color: var(--primary_color);
+  transition: all 0.5s ease;
 }
 
 /*  6 */
-.card_list li{
-    perspective :1000px;
+.card_list li {
+  perspective: 1000px;
 }
 
 /* card text 올라가기  */
-#card:has(.card_lists.semi_circle) .second_top_text{
-    transition: all 0.5s ease;
+#card:has(.card_lists.semi_circle) .second_top_text {
+  transition: all 0.5s ease;
 }
 
-#card:has(li.clicked) .second_top_text{
-    top: -22%;
+#card:has(li.clicked) .second_top_text {
+  top: -22%;
 }
 
-
-#card:has(li.clicked)  .card_lists li:not(.clicked),
-#card:has(li.clicked)  .card_lists_2 li:not(.clicked){
-    opacity: 0.4;
+#card:has(.card_lists_2.collect) .second_top_text .dis::after {
+  height: 110%;
 }
 
+#card:has(li.clicked) .card_lists.semi_circle li:not(.clicked),
+#card:has(li.clicked) .card_lists_2 li:not(.clicked) {
+  opacity: 0.4;
+}
 
-.card_lists.semi_circle li{
-    transform-origin: center 4000px;
-    transition:all 0.3s ease;
-    top:72%;
-    --ts_x:0px;
-    --ts_y: 0px;
-    --y : -28vh;
-
+.card_lists.semi_circle li {
+  transform-origin: center 4000px;
+  transition: all 0.3s ease;
+  top: 72%;
+  --ts_x: 0px;
+  --ts_y: 0px;
+  --y: -28vh;
 }
 
 .card_lists_2 li .card_inner,
-.card_lists li .card_inner{
-    width:100%;
-    height:100%;
-    position:Relative;
-    transition: 0.5s ease;
-    transform-style: preserve-3d;
+.card_lists li .card_inner {
+  width: 100%;
+  height: 100%;
+  position: Relative;
+  transition: 0.5s ease;
+  transform-style: preserve-3d;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 /* .card_lists_2 li:hover .card_inner,
 .card_lists.semi_circle li:hover .card_inner{
     transform:rotateY(180deg);
-} */
-/* .card_lists_2 li.clicked .card_inner,
+}
+.card_lists_2 li.clicked .card_inner,
 .card_lists.semi_circle li.clicked .card_inner{
     transform:rotateY(180deg);
 } */
@@ -212,17 +229,19 @@
 .card_lists_2 li .card_inner .front,
 .card_lists_2 li .card_inner .back,
 .card_lists li .card_inner .front,
-.card_lists li .card_inner .back
-{
-    position:absolute;
-    width:100%;
-    height:100%;
-        border-radius: 30px;
-    overflow: hidden;
-    backface-visibility: hidden;
+.card_lists li .card_inner .back {
+  --fb: 0;
+  transition: all 0.5s ease;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+  backface-visibility: hidden;
 }
 
-.card_lists li::before{
+/* .card_lists li::before{
     content: '';
     position: absolute;
     top:0;
@@ -231,10 +250,10 @@
     bottom: 0;
     border-radius: 30px;
     background-color: #fff;
-    animation: doongdoong 2s infinite;
+    animation: doongdoong2 2s infinite;
 }
 
-@keyframes doongdoong{
+@keyframes doongdoong2{
     0%{
         transform: scale(1);
         opacity: 0.3;
@@ -243,114 +262,135 @@
         transform: scale(1.1);
         opacity: 0;
     }
-}
+} */
 
 .card_lists_2 li .card_inner .back,
-.card_lists li .card_inner .back{
-    transform:rotateY(180deg);
+.card_lists li .card_inner .back {
+  --fb: 180deg;
+  transform: rotateY(180deg);
 }
 
-
-.card_lists.semi_circle li:nth-child(2){
-    --rotate:-6deg;
-    --y : -30vh;
+.card_lists.semi_circle li:nth-child(2) {
+  --rotate: -6deg;
+  --y: -30vh;
 }
-.card_lists.semi_circle li:nth-child(3){
-    --rotate:-12deg;
-    --y : -36vh;
+.card_lists.semi_circle li:nth-child(3) {
+  --rotate: -12deg;
+  --y: -36vh;
 }
-.card_lists.semi_circle li:nth-child(4){
-    --rotate:6deg;
-    --y : -30vh;
+.card_lists.semi_circle li:nth-child(4) {
+  --rotate: 6deg;
+  --y: -30vh;
 }
-.card_lists.semi_circle li:nth-child(5){
-    --rotate:12deg;
-    --y : -36vh;
+.card_lists.semi_circle li:nth-child(5) {
+  --rotate: 12deg;
+  --y: -36vh;
 }
 
+.card_lists_2 li {
+  --rotate: 0deg;
+  position: absolute;
+  width: 343px;
+  height: 382px;
+  transform-origin: center 4000px;
+  transition: all 0.7s ease;
+  top: 72%;
+  --ts_x: 0px;
+  --ts_y: 0px;
 
-.card_lists_2 li{
-    --rotate: 0deg;
-    position: absolute;
-    width: 343px;
-    height: 382px;
-    transform-origin: center 4000px;
-    transition:all 0.3s ease;
-    top:72%;
-    --ts_x:0px;
-    --ts_y: 0px;
-
-    --y : -28vh;
-    left: 50%;
-    perspective: 1000px;
-    transform: translate(calc(-50% + var(--ts_x)),calc(-50% + var(--ts_y))) rotate(calc(var(--rotate)));
+  --y: -28vh;
+  left: 50%;
+  perspective: 1000px;
+  transform: translate(calc(-50% + var(--ts_x)), calc(-50% + var(--ts_y)))
+    rotate(calc(var(--rotate)));
 }
 
 .card_lists li .text,
-.card_lists_2 li .text{
-    position: absolute;
-    top: calc(100% + 50px);
-    left: 50%;
-    transform: rotateY(-180deg) translate(50%);
-    text-align: center;
-    color: #fff;
-    font-family: 'Neue Regrade';
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.5s ease;
-    transition-delay: 0;
+.card_lists_2 li .text {
+  position: absolute;
+  top: calc(100% + 50px);
+  left: 50%;
+  transform: rotateY(-180deg) translate(50%);
+  text-align: center;
+  color: #fff;
+  font-family: "Neue Regrade";
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+  transition-delay: 0;
 }
 
 .card_lists li .text h3,
-.card_lists_2 li .text h3{
-    color: #fff;
-    font-size: 80px;
-    font-weight: 300;
-    text-transform: uppercase;
-    margin-bottom: 10px;
+.card_lists_2 li .text h3 {
+  color: #fff;
+  font-size: 80px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
 }
 
 .card_lists li .text p,
-.card_lists_2 li .text p{
-    color: #fff;
-    font-size: 28px;
-    font-weight: 100;
-    letter-spacing: -0.02em;
+.card_lists_2 li .text p {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 100;
+  letter-spacing: -0.01em;
 }
 
-.card_lists li.clicked .text,
-.card_lists_2 li.clicked .text{
-    visibility: visible;
-    opacity: 1;
-    transition: all 0.3s ease;
-    transition-delay: 0.3s;
+.card_lists.semi_circle li.clicked .text,
+.card_lists_2 li.clicked .text {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.3s ease;
+  transition-delay: 0.3s;
 }
 
-.card_lists_2 li img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.card_lists_2 li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.card_lists_2 li:nth-child(2){
-    --rotate:-6deg;
-    --y : -30vh;
+.card_lists_2 li:nth-child(2) {
+  --rotate: -6deg;
+  --y: -30vh;
 }
-.card_lists_2 li:nth-child(3){
-    --rotate:-12deg;
-    --y : -36vh;
+.card_lists_2 li:nth-child(3) {
+  --rotate: -12deg;
+  --y: -36vh;
 }
-.card_lists_2 li:nth-child(4){
-    --rotate:6deg;
-    --y : -30vh;
+.card_lists_2 li:nth-child(4) {
+  --rotate: 6deg;
+  --y: -30vh;
 }
-.card_lists_2 li:nth-child(5){
-    --rotate:12deg;
-    --left : 90%;
-    --y : -36vh;
+.card_lists_2 li:nth-child(5) {
+  --rotate: 12deg;
+  --left: 90%;
+  --y: -36vh;
 }
 
-.card_lists li.clicked .card_inner,
-.card_lists_2 li.clicked .card_inner{
-    transform: rotate(calc(var(--rotate) * -1)) translateY(var(--y)) rotateY(180deg);
+.card_lists.semi_circle li:hover .card_inner,
+.card_lists_2 li:hover .card_inner {
+  transform: translateY(0) rotateY(180deg);
+}
+
+.card_lists.semi_circle li.clicked .card_inner,
+.card_lists_2 li.clicked .card_inner {
+  transform: rotate(calc(var(--rotate) * -1)) translateY(var(--y))
+    rotateY(180deg);
+}
+
+.card_lists.semi_circle li.clicked .card_inner .front,
+.card_lists_2.semi_circle li.clicked .card_inner .front,
+.card_lists li.clicked .card_inner .back,
+.card_lists_2 li.clicked .card_inner .back {
+  transform: rotateY(var(--fb)) scale(1.15);
+}
+
+.card_lists_2.collect li {
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  transform-origin: center center;
 }

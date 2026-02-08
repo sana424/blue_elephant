@@ -47,6 +47,7 @@ gsap.from('#card .card_text',{
 
 const cardList = document.querySelector('#card .card_lists');
 const cardList2 = document.querySelector('#card .card_lists_2');
+const cardLists2 = document.querySelectorAll('#card .card_lists_2 li');
 const cardlists = document.querySelectorAll('#card .card_lists li');
 const secondTopText = document.querySelector('#card .second_top_text');
 const hiding = document.querySelector('#card .hiding');
@@ -75,7 +76,9 @@ gsap.to('#card .card_text',{
         })
         cardList.classList.add('semi_circle')
         secondTopText.classList.add('show');
-
+        cardlists.forEach(i2 => {
+            i2.classList.remove('clicked');
+        })
         ScrollTrigger.create({
             trigger : "body",
             start: ()=> self.end += 3500,
@@ -146,7 +149,13 @@ cardlists.forEach((item,index) => {
                 i.classList.remove('clicked');
             }
         })
-        item.classList.toggle('clicked');
+        if(!cardList2.classList.contains('collect')){
+            item.classList.toggle('clicked')
+        }else{
+            cardList2.querySelectorAll('li').forEach(i2 => {
+                i2.classList.remove('clicked');
+            })
+        }
     });
 
 
@@ -189,5 +198,32 @@ cardList2.querySelectorAll('li').forEach(item => {
             }
         })
         item.classList.toggle('clicked');
+    })
+})
+
+ScrollTrigger.create({
+    trigger: '#card',
+    start: 'bottom-=5500px top',
+    scrub: true,
+    onEnter : ()=>{
+        cardList2.classList.add('collect');
+    },
+    onEnterBack: ()=>{
+        cardList2.classList.remove('collect');
+    },
+    onLeaveBack: ()=>{
+        cardList2.classList.remove('collect');
+    }
+})
+
+cardLists2.forEach((item , index) => {
+    gsap.to(item, {
+        y:window.innerHeight * -0.8,
+        scrollTrigger: {
+            trigger: '#card',
+            start: `bottom-=${5000 - ((cardLists2.length - index -1) * 200)}px top`,
+            end: `bottom-=${5000 - (duration + ((cardLists2.length - index - 1) * 200))}px top`,
+            scrub: true,
+        }
     })
 })
