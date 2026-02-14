@@ -1,6 +1,6 @@
 #blue {
   background-color: #254bb6;
-  height: 2500px;
+  height: 5500px;
 }
 
 #blue .blue_inner {
@@ -52,21 +52,72 @@
   position: sticky;
   top: 0;
   left: 0;
+  overflow: hidden;
 }
 
 #videoLogo .bg_video_blue {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateZ(0);
   transform-origin: center;
+  pointer-events: none;
+}
+
+#videoLogo .bg_video_blue.hidden{
+  transition: all 0.5s ease;
+  border-radius: 9999px;
+  overflow: hidden;
+  transform: translate(-50%, -50%) scale(0);
+  visibility: hidden;
 }
 
 #videoLogo .bg_video_blue svg {
   width: 100%;
 }
 
+.circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.circles .circle {
+  --width: 0px;
+  --spacing: 50%;
+  position: absolute;
+  background: #254bb6;
+  border-radius: 9999px;
+  left: var(--spacing);
+  top: 30%;
+  transform: translate(-50%, -50%);
+  width: var(--width);
+  height: calc(var(--width) * 1);
+  transition: background 0.5s ease;
+}
+
+.circles .circle.right {
+  left: auto;
+  right: var(--spacing);
+}
+
+.circles .circle.active {
+  --width: 1500px;
+  --spacing: 50%;
+  background: #f1f1f1;
+}
+
 #videoLogo .next_cont {
   background-color: #f1f1f1;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
