@@ -71,7 +71,7 @@
     </div>
 
     <script>
-      const section = document.querySelector(".text_ani");
+      const textAni = document.querySelector(".text_ani");
       const pathsNode = document.querySelectorAll("#signature path");
 
       // ✅ 왼→오 방향으로 보이게: x좌표 기준 정렬
@@ -96,7 +96,7 @@
         });
 
         // reflow 한번
-        void section.offsetHeight;
+        void textAni.offsetHeight;
       }
 
       function drawPaths() {
@@ -125,7 +125,7 @@
       }
 
       function onScroll() {
-        const rect = section.getBoundingClientRect();
+        const rect = textAni.getBoundingClientRect();
         const inView = rect.top < window.innerHeight * 0.7 && rect.bottom > 0;
         if (inView) drawPaths();
       }

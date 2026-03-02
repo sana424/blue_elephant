@@ -1,6 +1,6 @@
 #blue {
   background-color: #254bb6;
-  height: 5500px;
+  height: 15000px;
 }
 
 #blue .blue_inner {
@@ -56,68 +56,185 @@
 }
 
 #videoLogo .bg_video_blue {
+  /* display: none; */
   width: 100vw;
   height: 100vh;
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 10;
   transform: translate(-50%, -50%) translateZ(0);
   transform-origin: center;
   pointer-events: none;
 }
-
+/* 
 #videoLogo .bg_video_blue.hidden{
   transition: all 0.5s ease;
   border-radius: 9999px;
   overflow: hidden;
   transform: translate(-50%, -50%) scale(0);
   visibility: hidden;
-}
+} */
 
-#videoLogo .bg_video_blue svg {
+#videoLogo .bg_video_blue img {
   width: 100%;
-}
-
-.circles {
+  height: 100%;
+  object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 10;
-}
-
-.circles .circle {
-  --width: 0px;
-  --spacing: 50%;
-  position: absolute;
-  background: #254bb6;
-  border-radius: 9999px;
-  left: var(--spacing);
-  top: 30%;
-  transform: translate(-50%, -50%);
-  width: var(--width);
-  height: calc(var(--width) * 1);
-  transition: background 0.5s ease;
-}
-
-.circles .circle.right {
-  left: auto;
-  right: var(--spacing);
-}
-
-.circles .circle.active {
-  --width: 1500px;
-  --spacing: 50%;
-  background: #f1f1f1;
+  right: 0;
+  bottom: 0;
 }
 
 #videoLogo .next_cont {
   background-color: #f1f1f1;
   height: 100vh;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
+}
+
+#videoLogo .next_cont .title {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@font-face {
+  font-family: "Thesignature";
+  src: url("../font/Thesignature.ttf") format("truetype");
+}
+
+#videoLogo .text_ani {
+  position: relative;
+  width: 100%;
+  /* height: 500px; */
+  margin-bottom: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* padding-top: 180px;  여기만 올렸다 내렸다 */
+}
+
+#signature {
+  width: 594px;
+  height: auto;
+}
+#signature path {
+  fill: #7e7e7e;
+  fill-opacity: 0; /* 처음엔 안 보이게 */
+  stroke: transparent; /* ✅ 테두리 제거 */
+  transition: fill-opacity 0.25s linear; /* 기본값 */
+}
+
+#videoLogo .fake_logo img {
+  opacity: 0;
+  visibility: hidden;
+  max-width: 1322px;
+  margin-bottom: 69px;
+}
+
+#videoLogo .mask_logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  --ms: 70;
+  -webkit-mask-image: url(../images/logo/logo_black.png);
+  mask-image: url(../images/logo/logo_black.png);
+  -webkit-mask-size: calc(var(--ms) * 1%);
+  mask-size: calc(var(--ms) * 1%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+#videoLogo .mask_logo.fullvideo {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+#videoLogo .mask_logo iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
+}
+#videoLogo .mask_logo.fullvideo iframe {
+  pointer-events: auto;
+}
+
+#videoLogo .next_cont .desc {
+  font-family: "Neue Regrade";
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 35px;
+  letter-spacing: -0.02em;
+  /* -0.02em = 25px * -  0.02 */
+  text-align: center;
+  color: var(--primary_color);
+  padding-bottom: 65px;
+}
+
+#videoLogo .down_scroll {
+  position: absolute;
+  bottom: 88px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+#videoLogo .down_scroll span {
+  --delay: 0s;
+  display: block;
+  width: 5px;
+  height: 5px;
+  background-color: var(--primary_color);
+  border-radius: 99px;
+
+  animation: gambak2 4s ease infinite;
+  animation-delay: var(--delay);
+}
+
+#videoLogo .down_scroll span:nth-child(2) {
+  --delay: 0.5s;
+}
+#videoLogo .down_scroll span:nth-child(3) {
+  --delay: 1s;
+}
+#videoLogo .down_scroll svg {
+  --delay: 1.5s;
+  animation: gambak2 4s ease infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes gambak2 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#videoLogo .curtain{
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: var(--primary_color);
+  width:100vw;
+  height: 100vh;
+  z-index: 10;
 }

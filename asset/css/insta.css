@@ -1,0 +1,6 @@
+#insta {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: var(--primary_color);
+  color: #fff;
+}
