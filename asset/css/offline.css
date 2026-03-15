@@ -1,0 +1,122 @@
+#offline .sec_intro {
+  height: 6000px;
+}
+
+#offline .sec_intro .sticky_01 {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#offline .sec_intro .curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--primary_color);
+  z-index: 10;
+}
+
+#offline .sec_intro .back_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#offline .sec_intro .back_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+#offline .sec_intro .store_list {
+  --translate: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+#offline .sec_intro .store_list .store {
+  width: 25%;
+  height: 100%;
+  background-color: #fff;
+  transform: translateY(var(--translate));
+  border-right: 1px solid #d1d1d1;
+}
+
+#offline .sec_intro .store_list .store:nth-child(even) {
+  transform: translateY(calc(var(--translate) * -1));
+}
+
+#offline .sec_intro .store_list .store:last-child {
+  border-right: none;
+}
+
+.store .store_inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  padding: 40px;
+}
+
+.store .store_inner .bottom_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.store .store_inner .bottom_text .shop_btn {
+  display: flex;
+  font-family: "Neue Regrade";
+  font-weight: 500;
+  line-height: 35px;
+  letter-spacing: -0.02em;
+  justify-content: space-between;
+  align-items: center;
+  width: 185px;
+  height: 49px;
+  border: 1px solid var(--primary_color);
+  border-radius: 9999px;
+  background-color: unset;
+  padding: 18px 28px;
+}
+
+.store .store_inner .bottom_text .type {
+  font-family: "Neue Regrade";
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 35px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 43px;
+  color: #7e7e7e;
+}
+
+.store .store_inner .bottom_text h2 {
+  font-family: "Gealova";
+  font-size: 44px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--primary_color);
+  margin-bottom: 8px;
+}
+
+.store .store_inner .num {
+  font-family: "Neue Regrade";
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 43px;
+  margin-bottom: 434px;
+  color: #255a90;
+  font-style: italic;
+}

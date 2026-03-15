@@ -1,6 +1,172 @@
 #insta {
   min-width: 100vw;
   min-height: 100vh;
+  height: 8000px;
   background-color: var(--primary_color);
   color: #fff;
+}
+
+#insta .insta_inner {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#insta .insta_inner .text {
+  color: #fff;
+  max-width: 1244px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+#insta .insta_inner .text .text_row {
+  display: flex;
+  gap: 65px;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+#insta .insta_inner .text p{
+  position: relative;
+}
+
+#insta .insta_inner .text p::after,
+#insta .insta_inner .text .text_row::after {
+  position: absolute;
+  content: "";
+  bottom: -5%;
+  left: -5%;
+  width: 110%;
+  height: 0;
+  transition: all 0.5s ease;
+  background-color: var(--primary_color);
+}
+
+#insta .insta_inner .text.hidden p::after,
+#insta .insta_inner .text.hidden .text_row::after {
+  height: 110%;
+}
+
+#insta .insta_inner .text .a {
+  color: #fff;
+  font-family: "Gealova";
+  font-size: 180px;
+  line-height: 169px;
+  white-space: nowrap;
+}
+
+#insta .insta_inner .text .line {
+  flex: 1;
+  height: 7px;
+  background-color: #fff;
+}
+
+#insta .insta_inner .text_row:nth-child(3) .line {
+  transform: translateY(-20px);
+}
+
+#insta .insta_inner .text p {
+  color: #fff;
+  font-family: "Neue Regrade";
+  font-weight: 100;
+  font-size: 25px;
+  line-height: 35px;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+/* photo */
+#insta .insta_inner .photos {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  transform:translateY(-100%);
+
+}
+
+#insta .insta_inner .photos .photo_list li {
+  --bottom: 10px;
+  --left: 10px;
+  position: absolute;
+  bottom: var(--bottom);
+  left: var(--left);
+  width:327px;
+  height:440px;
+  transition:all 0.5s ease;
+    perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+#insta .insta_inner .photos .photo_list li .insta_card{
+  width:100%;
+  height:100%;
+  position:relative;
+  transition:all 0.5s ease;
+  transform-style:preserve-3d;
+
+}
+
+#insta .insta_inner .photos .photo_list li img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+#insta .insta_inner .photos .photo_list li{
+  transition:all 0.5s ease;
+}
+#insta .insta_inner .photos .photo_list li:hover .insta_card{
+  transform:rotateY(180deg);
+}
+#insta .insta_inner .photos .photo_list li .back {
+  transform: rotateY(180deg);
+}
+
+#insta .insta_inner .photos .photo_list li .front,
+#insta .insta_inner .photos .photo_list li .back {
+  backface-visibility: hidden;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+#insta .insta_inner .photos .photo_list li:nth-child(1) {
+  --bottom: 0;
+  --left: 576px;
+}
+#insta .insta_inner .photos .photo_list li:nth-child(2) {
+  --bottom: 191px;
+  --left: 1344px;
+}
+#insta .insta_inner .photos .photo_list li:nth-child(3) {
+  --bottom: 349px;
+  --left: 145px;
+}
+#insta .insta_inner .photos .photo_list li:nth-child(4) {
+  --bottom: 642px;
+  --left: 807px;
+}
+#insta .insta_inner .photos .photo_list li:nth-child(5) {
+  --bottom: 937px;
+  --left: 1469px;
+}
+#insta .insta_inner .photos .photo_list li:nth-child(6) {
+  --bottom: 1111px;
+  --left: 145px;
+}
+#insta .insta_inner .photos .photo_list li:nth-child(7) {
+  --bottom: 1382px;
+  --left: 669px;
 }
