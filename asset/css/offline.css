@@ -52,6 +52,16 @@
   background-color: #fff;
   transform: translateY(var(--translate));
   border-right: 1px solid #d1d1d1;
+  transition: all 0.5s ease;
+}
+
+#offline .sec_intro .store_list:has(.store.active) .store{
+  width: 0;
+  overflow: hidden;
+}
+
+#offline .sec_intro .store_list:has(.store.active) .store.active{
+  width: 100%;
 }
 
 #offline .sec_intro .store_list .store:nth-child(even) {
@@ -60,6 +70,10 @@
 
 #offline .sec_intro .store_list .store:last-child {
   border-right: none;
+}
+
+.store{
+  cursor: url('../images/icon/offline_cursor.svg') 2 2, auto;
 }
 
 .store .store_inner {
@@ -75,9 +89,22 @@
   flex-direction: column;
 }
 
+.store.active .bottom_text{
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s 0.5s ease;
+}
+
+.store.active .num{
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s 0.5s ease;
+}
+
 .store .store_inner .bottom_text .shop_btn {
   display: flex;
   font-family: "Neue Regrade";
+  font-size: 18px;
   font-weight: 500;
   line-height: 35px;
   letter-spacing: -0.02em;
@@ -91,6 +118,18 @@
   padding: 18px 28px;
 }
 
+.store:hover .store_inner .bottom_text .shop_btn{
+  border-color: #fff;
+}
+
+.store:hover .store_inner .bottom_text .shop_btn span{
+  color: #fff;
+}
+
+.store:hover .store_inner .bottom_text .shop_btn svg path{
+  fill: #fff;
+}
+
 .store .store_inner .bottom_text .type {
   font-family: "Neue Regrade";
   font-weight: 300;
@@ -102,6 +141,10 @@
   color: #7e7e7e;
 }
 
+.store:hover .store_inner .bottom_text .type{
+  color: #fff;
+}
+
 .store .store_inner .bottom_text h2 {
   font-family: "Gealova";
   font-size: 44px;
@@ -109,6 +152,10 @@
   text-transform: uppercase;
   color: var(--primary_color);
   margin-bottom: 8px;
+}
+
+.store:hover .store_inner .bottom_text h2{
+  color: #fff;
 }
 
 .store .store_inner .num {
@@ -119,4 +166,73 @@
   margin-bottom: 434px;
   color: #255a90;
   font-style: italic;
+}
+
+.store:hover .store_inner .num{
+  color: #fff;
+}
+
+
+.store .store_inner .click_bg .img_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;
+}
+
+.store:hover .store_inner .click_bg .img_box {
+  opacity: 1;
+}
+
+.store.active .store_inner .click_bg .img_box{
+  opacity: 1;
+  animation: moveAni 2s ease;
+  width:1360px;
+  height: 100%;
+  top:0;
+  left: 0;
+}
+
+/* 바디스크롤 막기 */
+
+body:has(.store.active){
+  overflow: hidden;
+}
+
+@keyframes moveAni {
+  0%{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  50%{
+    top:calc(50% - (655px / 2));
+    left:calc(50% - (655px / 2));
+    width:655px;
+    height: 655px;
+  }
+  75%{
+    left: 0;
+    top: 117px;
+    width: 1035px;
+    height: 746px;
+  }
+  100%{
+    width: 1360px;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  
+}
+
+.store .store_inner .click_bg .img_box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }

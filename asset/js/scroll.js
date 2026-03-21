@@ -91,13 +91,13 @@ const blackTrigger = gsap.to(".black_container", {
       // fixBox 하단이 화면 하단에 오도록 스크롤 위치 고정 (먼저 실행)
       const fixBoxRect = fixBox.getBoundingClientRect();
       const targetScroll = window.scrollY + fixBoxRect.bottom - window.innerHeight;
-      window.scrollTo({
-        top: targetScroll,
-        behavior: 'smooth'
-      });
+      // window.scrollTo({
+      //   top: targetScroll,
+      //   behavior: 'smooth'
+      // });
 
-      // 스크롤 이동 후 아래 스크롤 차단
-      blackEnd = false;
+      // // 스크롤 이동 후 아래 스크롤 차단
+      // blackEnd = false;
     }
   }
 });
