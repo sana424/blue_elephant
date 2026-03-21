@@ -115,25 +115,25 @@ gsap.to(bgVideoBlue, {
 const ytIframe = document.querySelector("#ytplayer");
 let videoShouldPlay = false;
 
-function ytCommand(func, args) {
-  if (!ytIframe || !ytIframe.contentWindow) return;
-  ytIframe.contentWindow.postMessage(
-    JSON.stringify({
-      event: "command",
-      func: func,
-      args: args || [],
-    }),
-    "*",
-  );
-}
+// function ytCommand(func, args) {
+//   if (!ytIframe || !ytIframe.contentWindow) return;
+//   ytIframe.contentWindow.postMessage(
+//     JSON.stringify({
+//       event: "command",
+//       func: func,
+//       args: args || [],
+//     }),
+//     "*",
+//   );
+// }
 
 // iframe 로드 후 0.001초에서 정지 (첫 프레임 표시)
-ytIframe.addEventListener("load", () => {
-  setTimeout(() => {
-    ytCommand("seekTo", [0.001, true]);
-    ytCommand("pauseVideo");
-  }, 1000);
-});
+// ytIframe.addEventListener("load", () => {
+//   setTimeout(() => {
+//     ytCommand("seekTo", [0.001, true]);
+//     ytCommand("pauseVideo");
+//   }, 1000);
+// });
 
 // ── mask_logo Mask-Size Animation ──
 const maskLogo = document.querySelector("#videoLogo .mask_logo");
@@ -152,23 +152,22 @@ gsap.fromTo(
         // 화면 전체 가려짐 → 마스크 제거 + 재생
         videoShouldPlay = true;
         maskLogo.classList.add("fullvideo");
-        ytCommand("seekTo", [0, true]);
-        ytCommand("playVideo");
-        console.log("start");
+        ytIframe.currentTime = 0.001;
+        ytIframe.play();
       },
       onEnterBack: () => {
         // 스크롤 복귀 → 정지 + 마스크 복원
         videoShouldPlay = false;
         maskLogo.classList.remove("fullvideo");
-        ytCommand("seekTo", [0.001, true]);
-        ytCommand("pauseVideo");
+        ytIframe.currentTime = 0.001;
+        ytIframe.pause();
         console.log("stop");
       },
       onEnter: () => {
         videoShouldPlay = false;
         maskLogo.classList.remove("fullvideo");
-        ytCommand("seekTo", [0.001, true]);
-        ytCommand("pauseVideo");
+        ytIframe.currentTime = 0.001;
+        ytIframe.pause();
         console.log("stop");
       },
     },
