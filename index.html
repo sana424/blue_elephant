@@ -652,6 +652,9 @@
         </ul>
       </section>
       <section id="blue">
+        <div class="model_box" id="modelBox">
+          <canvas id="model-canvas"></canvas>
+        </div>
         <div class="blue_inner">
           <div class="bottom_text">
             <span>crafting your perfect vision, preparing Journey into style </span>
@@ -705,6 +708,13 @@
               </div>
               <div class="mask_logo">
               <video src="./asset/images/video/blue elephant_ad.MP4" id="ytplayer"></video>
+              <button class="play_btn">
+                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50" cy="50" r="50" fill="white" fill-opacity="0.55"/>
+<path d="M70 50L39 68L39 32L70 50Z" fill="white"/>
+</svg>
+
+              </button>
               <!-- <iframe id="ytplayer" src="https://www.youtube.com/embed/bzgrsIH3Nz0?si=LgX_WXez5sbo57Jw&amp;controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=bzgrsIH3Nz0&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
               </div>
               <p class="desc">
@@ -852,6 +862,31 @@
                     <div class="img_box">
                       <img src="./asset/images/offlinestore/dosan.png" alt="dosan_store">
                     </div>
+                    <!-- 스토어정보 -->
+                    <div class="right_info">
+                      <div class="title_area">
+                        <h2 class="store_name">
+                          DOSAN showroom
+                        </h2>
+                        <p class="address">
+                          32, Seolleung-ro 153-gil, Gangnam-gu, Seoul, </br>
+                          mon-sun 12:00-20:00
+                        </p>
+                      </div>
+                      <div class="location_box">
+                        <h3>location detail</h3>
+                        <div class="location_map">
+                          <div id="map-dosan"     style="width: 100%; height: 365px;"></div>
+                        </div>
+                        <button class="back_btn">
+                          <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="28.5" cy="28.5" r="28" stroke="#212121"/>
+<path d="M13 29L18 31.8868V26.1132L13 29ZM17.5 29V29.5H44V29V28.5H17.5V29Z" fill="black"/>
+</svg>
+                        </button>
+                      </div>
+                    </div>
+                    <!-- 스토어정보 끝 -->
                   </div>
                 </div>
               </li>
@@ -874,6 +909,31 @@
                     <div class="img_box">
                       <img src="./asset/images/offlinestore/yeonnam.png" alt="yeonnam_store">
                     </div>
+                    <!-- 스토어정보 -->
+                    <div class="right_info">
+                      <div class="title_area">
+                        <h2 class="store_name">
+                          YEONNAM showroom
+                        </h2>
+                        <p class="address">
+                          2f, 30, yanghwa-ro 23-gil, mapo-gu, seoul </br>
+                          mon-sun 12:00-22:00
+                        </p>
+                      </div>
+                      <div class="location_box">
+                        <h3>location detail</h3>
+                        <div class="location_map">
+                          <div id="map-yeonnam"   style="width: 100%; height: 400px;"></div>
+                        </div>
+                        <button class="back_btn">
+                          <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="28.5" cy="28.5" r="28" stroke="#212121"/>
+<path d="M13 29L18 31.8868V26.1132L13 29ZM17.5 29V29.5H44V29V28.5H17.5V29Z" fill="black"/>
+</svg>
+                        </button>
+                      </div>
+                    </div>
+                    <!-- 스토어정보 끝 -->
                   </div>
                 </div>
               </li>
@@ -896,6 +956,31 @@
                     <div class="img_box">
                       <img src="./asset/images/offlinestore/myeongdong.png" alt="myeongdong_store">
                     </div>
+                    <!-- 스토어정보 -->
+                    <div class="right_info">
+                      <div class="title_area">
+                        <h2 class="store_name">
+                          MYEONGDONG showroom
+                        </h2>
+                        <p class="address">
+                          8-7, Myeongdong 8-gil, Jung-gu, Seoul, </br>
+                          mon-sun 11:00-23:00
+                        </p>
+                      </div>
+                      <div class="location_box">
+                        <h3>location detail</h3>
+                        <div class="location_map">
+                          <div id="map-myeongdong" style="width: 100%; height: 400px;"></div>
+                        </div>
+                        <button class="back_btn">
+                          <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="28.5" cy="28.5" r="28" stroke="#212121"/>
+<path d="M13 29L18 31.8868V26.1132L13 29ZM17.5 29V29.5H44V29V28.5H17.5V29Z" fill="black"/>
+</svg>
+                        </button>
+                      </div>
+                    </div>
+                    <!-- 스토어정보 끝 -->
                   </div>
                 </div>
               </li>
@@ -918,10 +1003,94 @@
                     <div class="img_box">
                       <img src="./asset/images/offlinestore/hannam.png" alt="hannam_store">
                     </div>
+                    <!-- 스토어정보 -->
+                    <div class="right_info">
+                      <div class="title_area">
+                        <h2 class="store_name">
+                          HANNAM showroom
+                        </h2>
+                        <p class="address">
+                          48, Itaewon-ro 54-gil, Yongsan-gu, Seoul, </br>
+                          mon-sun 12:00-20:00
+                        </p>
+                      </div>
+                      <div class="location_box">
+                        <h3>location detail</h3>
+                        <div class="location_map">
+                          <div id="map-hannam"    style="width: 100%; height: 400px;"></div>
+                        </div>
+                        <button class="back_btn">
+                          <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="28.5" cy="28.5" r="28" stroke="#212121"/>
+<path d="M13 29L18 31.8868V26.1132L13 29ZM17.5 29V29.5H44V29V28.5H17.5V29Z" fill="black"/>
+</svg>
+                        </button>
+                      </div>
+                    </div>
+                    <!-- 스토어정보 끝 -->
                   </div>
                 </div>
               </li>
             </ul>
+            <div class="footer">
+            <div class="footer_inner">
+              <div class="footer_top">
+                <div class="links border">
+                  <a target="_blank" href="https://www.instagram.com/blueelephant.co/">INSTAGRAM</a>
+                  <a target="_blank" href="https://www.tiktok.com/@blueelephant_official">TIKTOK</a>
+                </div>
+                <div class="links">
+                  <a target="_blank" href="https://blueelephant.co/board/stories/list.html?board_no=8">News</a>
+                  <a target="_blank" href="https://8v7q3.channel.io/home">Client Service</a>
+                </div>
+              </div>
+              <div class="footer_middle">
+                <div class="connect">
+                  <div class="title">
+                    Jop Applications
+                  </div>
+                  <div class="desc">
+                    business@blueelephant.co <br/>
+                    pr@blueelephant.co
+                  </div>
+                </div>
+
+                <div class="connect">
+                  <div class="title">
+                    Address
+                  </div>
+                  <div class="desc">
+                    15-1 Seoul Forest 4-gil, <br/>
+                    Seongdong-gu, Seoul <br/>
+                    Republic of Korea Blue Elephant Co., Ltd </br>
+                  </div>
+                </div>
+
+                <div class="connect">
+                  <div class="title">
+                    Delivery Info
+                  </div>
+                  <div class="desc">
+                    CJ Korea Express <br/>
+                    3rd floor BLUE ELEPHANT, Dami Building, <br/>
+                    8 Achasan-ro 5-gil, Seongdong-gu, Seoul
+                  </div>
+                </div>
+              </div>
+              <div class="footer_bottom">
+                <div class="footer_bg">
+                  <img src="./asset/images/footer/footer_img.jpg" alt="footer_bg">
+                </div>
+                <div class="marquee_text top">
+                  blue elephant
+                </div>
+                <div class="marquee_text bottom">
+                  blue elephant
+                </div>
+              </div>
+              <p class="copy">©2026 BLUE elephant.all rights reserves</p>
+            </div>
+            </div>
           </div>
         </div>
       </section>
@@ -932,13 +1101,30 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+<script
+  async
+  defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9Nv6UoQMAQllORdTPlguXB1AgUeLwGDc&callback=initMap&language=ko"
+></script>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.173.0/examples/jsm/"
+  }
+}
+</script>
+
+
     <script src="./asset/js/script.js"></script>
     <script src="./asset/js/scroll.js"></script>
     <script src="./asset/js/detail.js"></script>
     <script src="./asset/js/card.js"></script>
+    <script type="module" src="./asset/js/model.js"></script>
     <script src="./asset/js/blue.js"></script>
     <script src="./asset/js/insta.js"></script>
     <script src="./asset/js/offline.js"></script>
-
   </body>
 </html>

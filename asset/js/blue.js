@@ -72,6 +72,10 @@ ScrollTrigger.create({
   },
 });
 
+
+
+
+
 gsap.to(bgVideoBlue, {
   width: "2000vw",
   height: "2000vh",
@@ -113,6 +117,8 @@ gsap.to(bgVideoBlue, {
 
 // ── YouTube Video Control (postMessage) ──
 const ytIframe = document.querySelector("#ytplayer");
+const blueVideoBtn = document.querySelector('#videoLogo .play_btn');
+
 let videoShouldPlay = false;
 
 // function ytCommand(func, args) {
@@ -135,6 +141,22 @@ let videoShouldPlay = false;
 //   }, 1000);
 // });
 
+
+const btnShowHide = ()=> {
+  if(ytIframe.paused && videoShouldPlay){
+    blueVideoBtn.style.display = 'flex'
+  }else{
+    blueVideoBtn.style.display = 'none'
+  }
+}
+
+blueVideoBtn.addEventListener('click', ()=>{
+  console.log('click!', ytIframe);
+  ytIframe.currentTime = 0.001;
+  ytIframe.play();
+  btnShowHide();
+})
+
 // ── mask_logo Mask-Size Animation ──
 const maskLogo = document.querySelector("#videoLogo .mask_logo");
 
@@ -153,7 +175,8 @@ gsap.fromTo(
         videoShouldPlay = true;
         maskLogo.classList.add("fullvideo");
         ytIframe.currentTime = 0.001;
-        ytIframe.play();
+        ytIframe.pause();
+        btnShowHide();
       },
       onEnterBack: () => {
         // 스크롤 복귀 → 정지 + 마스크 복원
@@ -162,6 +185,7 @@ gsap.fromTo(
         ytIframe.currentTime = 0.001;
         ytIframe.pause();
         console.log("stop");
+        btnShowHide();
       },
       onEnter: () => {
         videoShouldPlay = false;
@@ -169,6 +193,7 @@ gsap.fromTo(
         ytIframe.currentTime = 0.001;
         ytIframe.pause();
         console.log("stop");
+        btnShowHide();
       },
     },
   },

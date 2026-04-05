@@ -45,6 +45,20 @@
   }
 }
 
+#modelBox{
+  position: sticky;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+
+#modelBox canvas{
+  width: 100%;
+  height: 100%;
+}
+
 #videoLogo {
   background-color: #f1f1f1;
   width: 100vw;
@@ -167,6 +181,30 @@
 }
 #videoLogo .mask_logo.fullvideo video {
   pointer-events: auto;
+}
+
+#videoLogo .mask_logo .play_btn{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  background-color: unset;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: none;
+  /* font-size: 40px; */
+  /* color: #fff; */
+}
+
+#videoLogo .mask_logo .play_btn svg{
+  width:100%;
+  height: 100%;
 }
 
 #videoLogo .next_cont .desc {
